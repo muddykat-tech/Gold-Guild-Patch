@@ -1,0 +1,4 @@
+00470B44 is used to load background textures for UI, however in the instances that it's used; No issues are present.
+005B1337 doesn't seem to corralate with UI issues
+
+INT3 breakpoint "TLS Callback 1 (windowmanagementapi.dll)" at windowmanagementapi.6EB3FC00!
