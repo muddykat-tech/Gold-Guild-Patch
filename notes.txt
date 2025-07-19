@@ -4,6 +4,7 @@
 INT3 breakpoint "TLS Callback 1 (windowmanagementapi.dll)" at windowmanagementapi.6EB3FC00!
 
 
+Not 100% sure that the current idea for the '0x00470820 in ghidra or 0x70820 without ghidra offset' is a cdecl.
 params on stack are push to functions from Ordering: __cdecl right to left
 ebp + 0x4, ebp + 0x8, ebp + 0xc
 
