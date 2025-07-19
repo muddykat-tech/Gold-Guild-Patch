@@ -36,4 +36,4 @@ bin/patch.asi: $(NTERNALS_OBJ) | bin lib
 
 obj/patch.o: ${INTERNALS_SRC}/patch.cpp src/asi/asi.h | obj
 	$(call print_colored, "================== Starting Build ==================")
-	${CC} ${DLL_CFLAGS} -c "$<" -o "$@"
+	${CC} -mgeneral-regs-only ${DLL_CFLAGS} -c "$<" -o "$@"

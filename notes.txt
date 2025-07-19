@@ -2,3 +2,34 @@
 005B1337 doesn't seem to corralate with UI issues
 
 INT3 breakpoint "TLS Callback 1 (windowmanagementapi.dll)" at windowmanagementapi.6EB3FC00!
+
+
+params on stack are push to functions from Ordering: __cdecl right to left
+ebp + 0x4, ebp + 0x8, ebp + 0xc
+
+
+When on XP, full overwrite patch will crash on startup with the following: (Win10 notes an error, but continues anyway.)
+Log data, item 1
+ Address=7C812AEB
+ Message=Debug string: Flag 1 409, Flag 2 0
+Str:
+(null)
+Log data, item 0
+ Address=00471D93
+ Message=Access violation when reading [3794B354]
+
+When on Win10:
+DebugString: "Flag 1 226, Flag 2 0
+Str:
+(null)"
+EXCEPTION_DEBUG_INFO:
+           dwFirstChance: 1
+           ExceptionCode: 406D1388 (MS_VC_EXCEPTION)
+          ExceptionFlags: 00000000
+        ExceptionAddress: kernelbase.75D4B552
+        NumberParameters: 4
+ExceptionInformation[00]: 00001000
+ExceptionInformation[01]: mss32.21141C90
+ExceptionInformation[02]: 00001290
+ExceptionInformation[03]: 00000000
+First chance exception on 75D4B552 (406D1388, MS_VC_EXCEPTION)!

@@ -1,4 +1,5 @@
 #include "asi.h"
+#include <cstdio>
 
 namespace ASI
 {
@@ -51,8 +52,11 @@ bool __stdcall CheckVersion(Version sf_version)
     {
         case GOLD_206:
             // Locate In Game Reference to Version
-            if (*(int *)ASI::AddrOf(0x002a3838) == 75000)   // 1.54.75000
+            char game_buf[64];
+            sprintf(game_buf, (char *)ASI::AddrOf(0x2a3838));
+            if (strncmp(game_buf, "Europa 1400 - Gold Edition - 2.06", 34) || strncmp(game_buf, "Die Gilde - Gold Edition - 2.06", 32))
                 return true;
+            return false;
             break;
         default:
             return false;
