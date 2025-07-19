@@ -15,6 +15,7 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call,
             OutputDebugStringA("-- UI Patch Loading --");
             init_call_hooks();
             test_hook();
+            OutputDebugStringA("-- UI Patch Hooked --");
             break;
         }
         case DLL_PROCESS_DETACH:
@@ -29,24 +30,24 @@ static void init_call_hooks()
     g_menu_return_addr = (ASI::AddrOf(0x70826));
 }
 
-void __attribute__((no_caller_saved_registers, cdecl)) gui_load_something(uint32_t unknown_flag_1, uint32_t unknown_flag_2, char *gui_data_loc_maybe)
+void __attribute__((no_caller_saved_registers)) gui_load_something(uint32_t a, uint32_t b, char* c)
 {
-    OutputDebugStringA("-- UI Patch Hooked --");
-    char* info = new char[123];
-    sprintf(info, "Flag 1 %x, Flag 2 %x\nStr:\n%x", unknown_flag_1, unknown_flag_2, &gui_data_loc_maybe);
+    char info[256];
+    sprintf(info, "Testing");
     OutputDebugStringA(info);
 }
 
 static void __declspec(naked) test_hook_2()
 {
-    asm ("mov 0xc(%%ebp),%%eax      \n\t"
+    asm (
+        "mov 0x4(%%ebp),%%eax      \n\t"
         "push %%eax                \n\t"
         "mov 0x8(%%ebp),%%eax      \n\t"
         "push %%eax                \n\t"
-        "mov 0x4(%%ebp),%%eax      \n\t"
+        "mov 0xc(%%ebp),%%eax      \n\t"
         "push %%eax                \n\t"
         "call %P0                  \n\t"
-        "sub $0x248, %%esp         \n\t" // We overwrote this to put our jump, so we need it again.
+        "sub $0x248, %%esp         \n\t"
          "jmp *%1            \n\t" : : 
          "i" (gui_load_something),
          "o" (g_menu_return_addr));
