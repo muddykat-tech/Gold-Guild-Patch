@@ -1,49 +1,14 @@
 00470B44 is used to load background textures for UI, however in the instances that it's used; No issues are present.
 005B1337 doesn't seem to corralate with UI issues
 
+00594340 is used for shop UI's but not in the main menu.
+
+
 INT3 breakpoint "TLS Callback 1 (windowmanagementapi.dll)" at windowmanagementapi.6EB3FC00!
 
 Not 100% sure that the current idea for the '0x00470820 in ghidra or 0x70820 without ghidra offset' is a cdecl.
 params on stack are push to functions from Ordering: __cdecl right to left // stdcall is left to right
 ebp + 0x4, ebp + 0x8, ebp + 0xc
-
-//Without Patch:
-  in gui_load_something function at the start:
-  registers:
-  EAX : 005E070A     europa1400gold_tl.005E070A
-  EBX : 00000000
-  ECX : 00000009
-  EDX : 00000001
-  EBP : 0019FCA4
-  ESP : 00199254
-  ESI : 766BB7D0     <kernel32.GetPrivateProfileStringA>
-  EDI : 00024087
-  EIP : 00470820     europa1400gold_tl.00470820
-  EFLAGS : 00200344
-//
-
-EAX : 005E070A     europa1400gold_tl.005E070A
-EBX : 00000000
-ECX : 00000009
-EDX : 00000001
-EBP : 0019FCA4
-ESP : 0019900C
-ESI : 766BB7D0     <kernel32.GetPrivateProfileStringA>
-EDI : 00024087
-EIP : 00470826     europa1400gold_tl.00470826
-EFLAGS : 00200314
-
-// With Patch:
-  EAX : 005451A3     europa1400gold_tl.005451A3
-  EBX : 00000000
-  ECX : 00000D09     L'ഉ'
-  EDX : 04AF4FC8     "_SYSTEM_ICONS"
-  EBP : 0019FCA4
-  ESP : 0019F524
-  ESI : 0B88EF20
-  EDI : 007E246C     europa1400gold_tl.007E246C
-  EIP : 00470826     europa1400gold_tl.00470826
-//
 
 //flag 1 points to 'MOV EAX,[DAT_0077495c]' in ghidra? probably junk data at this point. Needs investigation. 
 //flag 2 in the gui_load_something is always equal to '6501e7' which points to 'undefined __stdcall entry(void)' in ghidra.
