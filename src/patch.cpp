@@ -33,6 +33,13 @@ static void init_call_hooks()
 int __cdecl gui_load_something(uint32_t a, uint32_t b, char* name)
 {
     char info[512];
+    
+    // Adding this will force the choose character talent menu background to load for the load game menu
+    if(!strcmp(name, "menu\\loadgame_new"))
+    {
+        sprintf(name, "menu\\choosecharacter_talent");
+    }
+    //MENU\\MAIN_MENU
     sprintf(info, "Hooked into gui load.\nFlag 1:%x\nFlag 2:%x\nGUI name ptr:%p\nGUI name string:%s\n", 
             a, b, name, name ? name : "(null)");
     OutputDebugStringA(info);
