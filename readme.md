@@ -13,6 +13,7 @@ For those interested below I've listed out function addresses I've found in Ghid
 - **00470b8b** sets the alpha for a menu background from some array. (default seems to be 0.75); (in menu setup)
 - **0046e940** seems to have some kind of relation to setting the position of a gui element with consideration of it's parent element.
 - **004699c0** changes the sprite / image used for small ui elements (seems to be used in limited animation as well) think of (scroll arrows and the questionmarks on free slot save files)
+- **0041a380** Seems to be the function used when creating the draw surface, calling d3d8.dll's Direct3DCreate8 function.
 
 
 An interesting note is that if you 'load' the choosecharacter_talent for other menus instead of their default, for example the load game menu.
