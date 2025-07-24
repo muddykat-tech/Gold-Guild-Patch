@@ -14,7 +14,7 @@ For those interested below I've listed out function addresses I've found in Ghid
 - **0046e940** seems to have some kind of relation to setting the position of a gui element with consideration of it's parent element.
 - **004699c0** changes the sprite / image used for small ui elements (seems to be used in limited animation as well) think of (scroll arrows and the questionmarks on free slot save files)
 - **0041a380** Seems to be the function used when creating the draw surface, calling d3d8.dll's Direct3DCreate8 function.
-
+- **004705FB** Is called when setting the resolution IDirect3DDevice8::CreateTexture
 
 An interesting note is that if you 'load' the choosecharacter_talent for other menus instead of their default, for example the load game menu.
 The UI issues don't show up, I assume this is due to the x size of the talent menu being smaller, and that some kind of max texture width is affecting the rendering. 

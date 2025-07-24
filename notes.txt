@@ -4,6 +4,8 @@
 00594340 is used for shop UI's but not in the main menu.
 
 
+00539205 - get client rect caller from user32 is used here
+
 INT3 breakpoint "TLS Callback 1 (windowmanagementapi.dll)" at windowmanagementapi.6EB3FC00!
 
 Not 100% sure that the current idea for the '0x00470820 in ghidra or 0x70820 without ghidra offset' is a cdecl.
