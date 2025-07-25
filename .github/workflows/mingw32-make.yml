@@ -1,0 +1,58 @@
+name: mingw32-make
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    permissions: write-all
+    runs-on: windows-2019
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Set up MinGW
+      uses: egor-tensin/setup-mingw@v2
+      with:
+        platform: x86
+        version: 12.2.0
+
+    - name: Print GCC Version
+      run: gcc --version
+
+    - name: Compile Project
+      run: |
+        mingw32-make --version
+        mingw32-make clean
+        mingw32-make --debug
+
+    - name: Upload Patch Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: patch-artifact
+        path: bin/patch.asi
+
+    - name: Create GitHub Release
+      uses: actions/create-release@v1
+      id: create_release
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: ${{ github.ref_name }}
+        draft: true
+        prerelease: false
+        body_path: CHANGELOG.md
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Upload Patch Binary to Release
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: bin/patch.asi
+        asset_name: patch.asi
+        asset_content_type: application/zip
