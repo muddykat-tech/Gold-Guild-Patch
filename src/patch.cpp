@@ -16,8 +16,8 @@ extern "C" {
 }
 
 #define IDirect3D8_PTR_ADDR 0x6B5DDC
+#define IDirect3DDevice8_PTR_ADDR 0x6B5DE0
 
-// Global device pointer to cache the device once we find it
 IDirect3DDevice8* g_pDevice = nullptr;
 
 typedef HRESULT(WINAPI* CreateDevice_t)(
@@ -96,11 +96,10 @@ HRESULT WINAPI hkCreateTexture(
     D3DPOOL Pool,
     IDirect3DTexture8** ppTexture)
 {
-    
-    if(Width == 1024 && Height == 1024)
+    if(Width == 512 && Height == 512)
     {
-        OutputDebugStringA("[Hook] CreateImage - Scaling 1024x1024 to 1280x1280\n");
-        return oCreateTexture(pDevice, 1280, 1280, Levels, Usage, Format, Pool, ppTexture);
+        OutputDebugStringA("[Hook] CreateImage - Scaling 512x512 to 1024x1024\n");
+        return oCreateTexture(pDevice, 1024, 1024, Levels, Usage, Format, Pool, ppTexture);
     }
 
     return oCreateTexture(pDevice, Width, Height, Levels, Usage, Format, Pool, ppTexture);
@@ -118,56 +117,6 @@ HRESULT WINAPI hkSetTransform(
     D3DTRANSFORMSTATETYPE State,
     CONST D3DMATRIX* pMatrix)
 {
-    // Only log projection matrix changes as they affect clipping
-     // Check for projection matrix and fix if corrupted
-    if (State == D3DTS_PROJECTION && pMatrix)
-    {
-        char info[512];
-       
-        
-        OutputDebugStringA("[Hook] Detected corrupted projection matrix! Creating corrected matrix.\n");
-        
-        // Create a proper orthographic projection matrix for UI rendering
-        D3DMATRIX correctedMatrix;
-        D3DVIEWPORT8 viewport;
-        if (SUCCEEDED(pDevice->GetViewport(&viewport)))
-        {
-            float width = (float)viewport.Width;
-            float height = (float)viewport.Height;
-            
-            char viewportInfo[256];
-            sprintf(viewportInfo, "[Hook] Using viewport dimensions: %.0fx%.0f for projection fix\n", width, height);
-            OutputDebugStringA(viewportInfo);
-            
-            // Create orthographic projection matrix
-            // This maps screen coordinates directly (0,0) to (width,height)
-            memset(&correctedMatrix, 0, sizeof(D3DMATRIX));
-            correctedMatrix._11 = 2.0f / width;   // X scale
-            correctedMatrix._22 = -2.0f / height; // Y scale (negative for screen coordinates)
-            correctedMatrix._33 = 1.0f;           // Z scale
-            correctedMatrix._44 = 1.0f;           // W scale
-            correctedMatrix._41 = -1.0f;          // X offset
-            correctedMatrix._42 = 1.0f;           // Y offset
-            
-            OutputDebugStringA("[Hook] Using corrected orthographic projection matrix\n");
-            return oSetTransform(pDevice, State, &correctedMatrix);
-        }
-        else
-        {
-            OutputDebugStringA("[Hook] Could not get viewport, using 1152x864 fallback projection\n");
-            memset(&correctedMatrix, 0, sizeof(D3DMATRIX));
-            correctedMatrix._11 = 2.0f / 1152.0f;
-            correctedMatrix._22 = -2.0f / 864.0f;
-            correctedMatrix._33 = 1.0f;
-            correctedMatrix._44 = 1.0f;
-            correctedMatrix._41 = -1.0f;
-            correctedMatrix._42 = 1.0f;
-            
-            return oSetTransform(pDevice, State, &correctedMatrix);
-        }
-        
-    }
-
     return oSetTransform(pDevice, State, pMatrix);
 }
 
@@ -564,14 +513,6 @@ HRESULT WINAPI hkCreateDevice(
           if(oCreateTexture == nullptr)
           {
             g_pDevice = *ppReturnedDeviceInterface;
-            OutputDebugStringA("[+] Device captured from CreateDevice hook!\n");        
-            HookGameCreateTexture();
-            HookGameCreateImageSurface();
-            HookGamePresent();
-            HookGameSetViewport();
-            HookGameSetRenderTarget();
-            HookGameSetClipPlane();
-            HookSetTransform();
           }
     }
     
@@ -619,7 +560,9 @@ bool HookCreateDevice()
         OutputDebugStringA("[-] MH_EnableHook failed for CreateDevice.\n");
         return false;
     }
-
+    char info[256];
+    sprintf(info, "Device PTR: 0x%x", (**oCreateDevice));
+    OutputDebugStringA(info);
     OutputDebugStringA("[+] Successfully hooked IDirect3D8::CreateDevice.\n");
     return true;
 }
@@ -659,6 +602,21 @@ static void init_call_hooks()
 {
     g_menu_return_addr = (ASI::AddrOf(0x70826));
     HookCreateDevice();
+    IDirect3DDevice8* p3DDevice = *reinterpret_cast<IDirect3DDevice8**>(IDirect3DDevice8_PTR_ADDR);
+    if (!p3DDevice)
+    {
+        OutputDebugStringA("[-] Failed to get IDirect3DDevice8 pointer.\n");
+        return;
+    }
+    g_pDevice = p3DDevice;
+
+    HookGameCreateTexture();
+    HookGameCreateImageSurface();
+    HookGamePresent();
+    HookGameSetViewport();
+    HookGameSetRenderTarget();
+    HookGameSetClipPlane();
+    HookSetTransform();
 }
 
 int __cdecl gui_load_something(uint32_t a, uint32_t b, char* name)
