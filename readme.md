@@ -26,11 +26,13 @@ This patch modifies the behavior so that surface dimensions are always padded as
 
 For modders and reverse engineers, the following function addresses (identified via Ghidra) are relevant:
 
-- `0x0053B1B0` — Initializes `choosecharacter_talent` menu
-- `0x00470820` — Loads menu from compressed assets
-- `0x00470B8B` — Sets menu background alpha (~0.75 default)
-- `0x0046E940` — Positions GUI elements
-- `0x004699C0` — Sets small UI sprites (e.g., scroll arrows)
-- `0x0041A380` — Calls `Direct3DCreate8` from `d3d8.dll`
-- `0x004705FB` — Triggered during resolution set; leads to `CreateTexture`
-- `0x00477152` / `0x00477153` — Conditional check controlling padding logic for surface dimensions
+- `0x0053B1B0`: Initializes `choosecharacter_talent` menu
+- `0x00470820`: Loads menu from compressed assets
+- `0x00470B8B`: Sets menu background alpha (~0.75 default)
+- `0x0046E940`: Positions GUI elements
+- `0x004699C0`: Sets small UI sprites (e.g., scroll arrows)
+- `0x0041A380`: Calls `Direct3DCreate8` from `d3d8.dll`
+- `0x004705FB`: Triggered during resolution set; leads to `CreateTexture`
+- `0x004770a0`: called when allocating a new image surface
+- `0x00477152` / `0x00477153`: Conditional check controlling padding logic for surface dimensions replaces DAT_0067d91d != '\0' check.
+- `0x0067d91d`: Location of the byte that toggles if the image surface padding is enabled or not, in modern versions of windows this is consistantly reset to 00h. (on XP it is set as 01h)
