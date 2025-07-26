@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "windows.h": "c",
-        "cstdint": "cpp"
+        "cstdint": "cpp",
+        "string": "cpp"
     }
 }
