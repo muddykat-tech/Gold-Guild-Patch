@@ -1,32 +1,36 @@
 # Gold Guild Patch
 
-A compatibility patch that addresses UI rendering issues in *Europa 1400: Gold* when running on versions of Windows newer than Windows XP.
+A compatibility patch for *Europa 1400: Gold* that fixes UI rendering issues on modern versions of Windows (Vista and newer).
 
 ## Overview
 
-This patch resolves graphical and layout problems caused by changes in how modern versions of Windows handle rendering surfaces.
+The game creates image surfaces using `IDirect3DDevice8::CreateImageSurface`. Correct behavior depends on surface dimensions being padded to the next power of two. If this padding does not occur, textures may appear truncated, causing broken UI elements.
 
-Specifically, the game creates image surfaces using `IDirect3DDevice8::CreateImageSurface` from `d3d8.dll`. On Windows XP, when a surface is requested with non-power-of-two dimensions, the system automatically pads it to the next valid power of two. On later versions of Windows, this behavior is no longer guaranteed, leading to truncated textures and broken UI rendering.
+The logic responsible for this padding depends on a conditional check located at addresses `0x00477152` and `0x00477153`. On modern systems, this check fails, causing the game to skip the padding logic.
 
-This patch restores compatibility by ensuring surfaces are correctly padded to match the game's expectations.
+This patch modifies the behavior so that surface dimensions are always padded as expected, restoring correct UI rendering.
+
+## Compatibility
+
+- **Supported**: GOG version (`Europa1400Gold_TL.exe`)
+- **Not Supported**: Steam version (compiled differently; patch incompatible)
 
 ## Installation
 
-1. Download the `patch.asi` file.
-2. Copy `patch.asi` into the **root directory** of your *Europa 1400: Gold* installation.
-3. **Important:** This patch targets `Europa1400Gold_TL.exe`.  
-   Make sure you launch the game using this executable, it will **not** work with `Europa1400Gold.exe`.
+1. Download `patch.asi`.
+2. Place `patch.asi` in the **root directory** of your *Europa 1400: Gold* installation.
+3. Launch the game using `Europa1400Gold_TL.exe`.
 
-## Technical Notes
+## Technical Details
+> GOG version specific
 
-For those interested in the technical details, below are some function addresses identified using Ghidra that may be useful for further reverse engineering or mod development:
+For modders and reverse engineers, the following function addresses (identified via Ghidra) are relevant:
 
-### Relevant Function Addresses
-
-- `0053B1B0`: Initialization function for the `choosecharacter_talent` menu.
-- `00470820`: Loads a menu from compressed asset data.
-- `00470B8B`: Sets the alpha transparency of menu backgrounds (default is ~0.75).
-- `0046E940`: Manages the positioning of GUI elements relative to their parent elements.
-- `004699C0`: Changes the sprite/image for small UI elements (e.g., scroll arrows, question marks in save slots).
-- `0041A380`: Creates the draw surface by calling `Direct3DCreate8` from `d3d8.dll`.
-- `004705FB`: Called when setting the resolution; should correspond to a call to `IDirect3DDevice8::CreateTexture`.
+- `0x0053B1B0` — Initializes `choosecharacter_talent` menu
+- `0x00470820` — Loads menu from compressed assets
+- `0x00470B8B` — Sets menu background alpha (~0.75 default)
+- `0x0046E940` — Positions GUI elements
+- `0x004699C0` — Sets small UI sprites (e.g., scroll arrows)
+- `0x0041A380` — Calls `Direct3DCreate8` from `d3d8.dll`
+- `0x004705FB` — Triggered during resolution set; leads to `CreateTexture`
+- `0x00477152` / `0x00477153` — Conditional check controlling padding logic for surface dimensions
