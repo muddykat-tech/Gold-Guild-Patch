@@ -1,14 +1,39 @@
 # Gold Guild Patch
-
-A compatibility patch for *Europa 1400: Gold* that fixes UI rendering issues on modern versions of Windows (Vista and newer).
+![game](https://img.shields.io/badge/game-Europa%201400%20Gold-gold) ![GitHub release](https://img.shields.io/github/v/release/muddykat-tech/Gold-Guild-Patch) ![File Type](https://img.shields.io/badge/type-ASI%20Plugin-green)
+> A compatibility patch for *Europa 1400: Gold* that fixes UI rendering issues on modern versions of Windows (Vista and newer).
 
 ## Overview
 
-The game creates image surfaces using `IDirect3DDevice8::CreateImageSurface`. Correct behavior depends on surface dimensions being padded to the next power of two. If this padding does not occur, textures may appear truncated, causing broken UI elements.
+*Europa 1400: Gold* experiences UI rendering problems on modern Windows systems due to a surface padding compatibility issue in the DirectX 8 rendering pipeline.
 
-The logic responsible for this padding depends on a conditional check located at addresses `0x00477152` and `0x00477153`. On modern systems, this check fails, causing the game to skip the padding logic.
+### The Problem
+> Addresses are GOG Specific
 
-This patch modifies the behavior so that surface dimensions are always padded as expected, restoring correct UI rendering.
+![Technical Flow Diagram](flowchart.png)
+
+A simplified overview of the game's rendering system follows this process:
+
+1. **IDirectD3D8 Creation**: `FN_CreateRender_maybe: see addr 0x041a380` is called to set up DirectX rendering
+2. **Display Information Detection**: The system attempts to detect data about the display
+3. **Suspected Initial Failure Point**: On Windows Vista and newer, `IDirect3D8::EnumAdapterModes: called at 0x041a4ca` this seems to be interrupted by `d3d10warp.dll` loading, causing the padding detection method to encounter an error and zero out the structure it was filling. (this data seems to be stored in a global ptr (`PTR_AdapterData`) to a custom struct)
+4. **D3D8 Device Creation**: After creating the IDirectD3D8 Struct, the game then creates the Device and uses the information in PTR_AdapterData to set `TextureCaps`
+5. **Surface Allocation**: When `FN_allocate_image_surface: see addr 0x04770a0` is later called, the surface padding calculations are based on the data from `TextureCaps` which is errounous in windows 10.
+6. **Result**: UI textures appear truncated because surface dimensions aren't properly padded to the next power of two and seem to be floored or rounded to a power of two.
+
+### Fix
+This patch has evolved through two different approaches.
+
+**Version 1.1**
+Currently this patch bypasses the unreliable data by directly removing the conditional check at addresses `0x0477152` and `0x0477153`. Instead of relying on the failed detection routine, the patch ensures that surface dimensions are always calculated to the next highest power of two.
+
+> Example: 194x256 -> 256x256, 1153x1024 -> 2048x1024
+
+**Version 1.0**
+The Patch used function trampolining and hooked IDirect3DDevice8::CreateImageSurface calls to manually calculated the next power of two for surface dimensions. This method intercepted the function calls using the game's stored device references, thus it is *still* game version specific and will only work for the GOG version of the game.
+
+### Version History
+- [Version 1.1](https://github.com/muddykat-tech/Gold-Guild-Patch/releases/tag/v1.1) - **Latest release** - Removes the conditional check, forcing the games padding calculations to always occur
+- [Version 1.0](https://github.com/muddykat-tech/Gold-Guild-Patch/releases/tag/v1.0) - Initial release using function trampolining approach
 
 ## Compatibility
 
