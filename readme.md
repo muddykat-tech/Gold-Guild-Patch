@@ -37,10 +37,10 @@ A simplified overview of the game's rendering system follows this process:
 
 ## Patch Versions
 
-| Version | Description | Fix Method | Example | Link |
-|---------|-------------|------------|---------|------|
-| **1.1** *(Current)* | Removes conditional check at `0x0477152` and `0x0477153` | Forces surface dimensions to the **next power of two**, bypassing DirectX capability detection | `194x256 → 256x256`<br>`1153x1024 → 2048x1024` | [Download v1.1](https://github.com/muddykat-tech/Gold-Guild-Patch/releases/tag/v1.1) |
-| **1.0** *(Legacy)* | Hooks into `IDirect3DDevice8::CreateImageSurface` using function trampolining | Manually calculates correct surface sizes from game device reference | Same behavior as above, but less stable | [Download v1.0](https://github.com/muddykat-tech/Gold-Guild-Patch/releases/tag/v1.0) |
+| Version | Description | Example | Link |
+|---------|-------------|---------|------|
+| **1.1** *(Current)* | Forces surface dimensions to the **next power of two** Removes conditional check at `0x0477152` and `0x0477153` | `1153x1024 -> 2048x1024` | [Download v1.1](https://github.com/muddykat-tech/Gold-Guild-Patch/releases/tag/v1.1) |
+| **1.0** *(Legacy)* | Using games addresses to hook `IDirect3DDevice8::CreateImageSurface` creating a function trampoline and manually calculate the correct surface sizes | Same behavior as above | [Download v1.0](https://github.com/muddykat-tech/Gold-Guild-Patch/releases/tag/v1.0) |
 
 > Both versions are specific to the **GOG** version. The Steam version is incompatible due to different binary layout.
 
