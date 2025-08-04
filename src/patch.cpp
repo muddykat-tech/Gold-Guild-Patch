@@ -1,5 +1,6 @@
 #include <windows.h>
 #include <cstdio>
+#include <d3d8.h>
 
 bool PatchMemory(void* address, size_t size) {
     DWORD oldProtect;
