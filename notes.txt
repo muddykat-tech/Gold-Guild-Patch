@@ -1,3 +1,172 @@
+Device Caps in XP:
+Debug string: [UNKNOWN_MEMORY_TARGET] Memory dump at 0x014ce740 (213 bytes):
+0000: 01 00 00 00 00 00 00 00 00 00 00 00 00 00 08 20  ............... 
+0010: 20 01 00 00 01 00 00 80 01 00 00 00 F0 AE 19 08   ...............
+0020: F2 08 12 00 91 61 72 00 FF 00 00 00 FF 1F 00 00  .....ar.........
+0030: FF 03 00 00 FF 00 00 00 08 42 08 00 47 ED 07 00  .........B..G...
+0040: 00 07 03 03 00 03 03 03 00 03 03 03 3F 00 00 00  ............?...
+0050: 3F 00 00 00 1F 00 00 00 00 10 00 00 00 10 00 00  ?...............
+0060: 00 08 00 00 00 20 00 00 00 40 00 00 10 00 00 00  ..... ...@......
+0070: 00 00 80 3F 00 00 00 C6 00 00 00 C6 00 00 00 46  ...?...........F
+0080: 00 00 00 46 00 00 00 00 FF 00 00 00 08 00 18 00  ...F............
+0090: FF FF FF 03 08 00 00 00 08 00 00 00 3B 00 00 00  ............;...
+00A0: 08 00 00 00 06 00 00 00 04 00 00 00 00 00 00 00  ................
+00B0: 00 00 3D 43 FF FF 1F 00 FF FF 0F 00 10 00 00 00  ..=C............
+00C0: 00 01 00 00 01 01 FE FF 60 00 00 00 04 01 FF FF  ........`.......
+00D0: 00 E0 7F 47 00                                   ...G.
+7C812AEB  Debug string: Accessing Data at 0x13fab4
+
+[Interface Caps] _D3DCAPS8:
+DeviceType: 1
+AdapterOrdinal: 0
+Caps: 0
+Caps2: 20080000
+Caps3: 120
+PresentationIntervals: 80000001
+CursorCaps: 1
+DevCaps: 819aef0
+PrimitiveMiscCaps: 1208f2
+RasterCaps: 726191
+ZCmpCaps: ff
+SrcBlendCaps: 1fff
+DestBlendCaps: 3ff
+AlphaCmpCaps: ff
+ShadeCaps: 84208
+TextureCaps: 7ed47
+TextureFilterCaps: 3030700
+CubeTextureFilterCaps: 3030300
+VolumeTextureAddressCaps: 3f
+LineCaps: 1f
+MaxTextureWidth: 4096
+MaxTextureHeight: 4096
+MaxVolumeExtent: 2048
+MaxTextureRepeat: 8192
+MaxTextureAspectRatio: 16384
+MaxAnisotropy: 10
+MaxVertexW: 0
+GuardBandLeft: 0
+GuardBandTop: 0
+GuardBandRight: 0
+GuardBandBottom: 0
+ExtentsAdjust: 0
+StencilCaps: ff
+FVFCaps: 180008
+TextureOpCaps: 3ffffff
+MaxTextureBlendStages: 8
+MaxSimultaneousTextures: 8
+VertexProcessingCaps: 3b
+
+[PARAMS_BEFORE] D3DPRESENT_PARAMETERS:
+BackBufferWidth: 1024
+BackBufferHeight: 768
+BackBufferFormat: 22
+BackBufferCount: 2
+MultiSampleType: 0
+SwapEffect: 1
+hDeviceWindow: 0x00180120
+Windowed: TRUE
+EnableAutoDepthStencil: TRUE
+AutoDepthStencilFormat: 77
+Flags: 0x00000000
+FullScreen_RefreshRateInHz: 0
+FullScreen_PresentationInterval: 0
+
+[PARAMS_RAW_BEFORE] Memory dump (52 bytes):
+0000: 00 04 00 00 00 03 00 00 16 00 00 00 02 00 00 00  ................
+0010: 00 00 00 00 01 00 00 00 20 01 18 00 01 00 00 00  ........ .......
+0020: 01 00 00 00 4D 00 00 00 00 00 00 00 00 00 00 00  ....M...........
+0030: 00 00 00 00                                      ....
+
+Accessing Data at 0x13f41c
+[Device Caps] _D3DCAPS8:
+DeviceType: 1
+AdapterOrdinal: 0
+Caps: 0
+Caps2: 20080000
+Caps3: 120
+PresentationIntervals: 80000001
+CursorCaps: 1
+DevCaps: 819aef0
+PrimitiveMiscCaps: 1208f2
+RasterCaps: 726191
+ZCmpCaps: ff
+SrcBlendCaps: 1fff
+DestBlendCaps: 3ff
+AlphaCmpCaps: ff
+ShadeCaps: 84208
+TextureCaps: 7ed47
+TextureFilterCaps: 3030700
+CubeTextureFilterCaps: 3030300
+VolumeTextureAddressCaps: 3f
+LineCaps: 1f
+MaxTextureWidth: 4096
+MaxTextureHeight: 4096
+MaxVolumeExtent: 2048
+MaxTextureRepeat: 8192
+MaxTextureAspectRatio: 16384
+MaxAnisotropy: 10
+MaxVertexW: 0
+GuardBandLeft: 0
+GuardBandTop: 0
+GuardBandRight: 0
+GuardBandBottom: 0
+ExtentsAdjust: 0
+StencilCaps: ff
+FVFCaps: 180008
+TextureOpCaps: 3ffffff
+MaxTextureBlendStages: 8
+MaxSimultaneousTextures: 8
+VertexProcessingCaps: 3b
+
+
+
+
+
+[Device Caps] _D3DCAPS8:DeviceType: 1
+AdapterOrdinal: 0
+Caps: 20000
+Caps2: 20080000
+Caps3: a0
+PresentationIntervals: 8000000f
+CursorCaps: 0
+DevCaps: 1bbff0
+PrimitiveMiscCaps: ff2
+RasterCaps: 732190
+ZCmpCaps: ff
+SrcBlendCaps: 1fff
+DestBlendCaps: 1fff
+AlphaCmpCaps: ff
+ShadeCaps: 84208
+TextureCaps: 1ecc5
+TextureFilterCaps: 7030700
+CubeTextureFilterCaps: 7030700
+VolumeTextureAddressCaps: 3f
+LineCaps: 1f
+MaxTextureWidth: 16384
+MaxTextureHeight: 16384
+MaxVolumeExtent: 16384
+MaxTextureRepeat: 8192
+MaxTextureAspectRatio: 8192
+MaxAnisotropy: 10
+MaxVertexW: 20000000
+GuardBandLeft: 0
+GuardBandTop: 0
+GuardBandRight: 0
+GuardBandBottom: 0
+ExtentsAdjust: 0
+StencilCaps: ff
+FVFCaps: 100008
+TextureOpCaps: 3ffffff
+MaxTextureBlendStages: 8
+MaxSimultaneousTextures: 8
+VertexProcessingCaps: 7b"
+
+
+
+
+
+
+
 00470B44 is used to load background textures for UI, however in the instances that it's used; No issues are present.
 005B1337 doesn't seem to corralate with UI issues
 

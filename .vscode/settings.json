@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "windows.h": "c",
-        "cstdint": "cpp"
-    }
+        "cstdint": "cpp",
+        "vector": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }

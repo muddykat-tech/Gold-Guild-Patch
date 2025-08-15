@@ -5,7 +5,7 @@ DLL_CFLAGS = -O0 -g -std=c++11 ${WARNS} -Iinclude -DADD_EXPORTS -fpermissive -m3
 DLL_LDFLAGS = -m32 -shared -static-libgcc -static-libstdc++ -s -Wl,-Bstatic,--whole-archive -lwinpthread -Wl,--no-whole-archive -Wl,--subsystem,windows,--out-implib,lib/lib.a
 FW_LDFLAGS = -m32 -shared -static-libgcc -static-libstdc++ -s -Wl,-Bstatic,--whole-archive -lwinpthread -Wl,--no-whole-archive -Wl,--subsystem,windows,--out-implib,lib/patch.a
 
-NTERNALS_OBJ = obj/patch.o obj/asi.o
+NTERNALS_OBJ = obj/patch.o obj/asi.o obj/logger.o
 MINHOOK_SRC = src/MinHook/buffer.c src/MinHook/hook.c src/MinHook/trampoline.c src/MinHook/hde32.c
 MINHOOK_OBJ = obj/buffer.o obj/hook.o obj/trampoline.o obj/hde32.o
 
@@ -44,6 +44,9 @@ obj/hook.o: src/MinHook/hook.c | obj
 	${CC_C} -c $< -o $@
 
 obj/trampoline.o: src/MinHook/trampoline.c | obj
+	${CC_C} -c $< -o $@
+	
+obj/logger.o: src/logger.c | obj
 	${CC_C} -c $< -o $@
 
 obj/asi.o: src/asi/asi.cpp src/asi/asi.h | obj
