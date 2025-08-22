@@ -22,9 +22,11 @@ uint32_t g_menu_return_addr = 0;
 
 typedef HRESULT(WINAPI* CreateDevice_t)(IDirect3D8*, UINT, D3DDEVTYPE, HWND, DWORD, D3DPRESENT_PARAMETERS*, IDirect3DDevice8**);
 typedef HRESULT(WINAPI* CreateImageSurface_t)(IDirect3DDevice8*, UINT, UINT, D3DFORMAT, IDirect3DSurface8**);
+typedef HRESULT(WINAPI* EnumAdapterModes_t)(UINT, UINT, D3DDISPLAYMODE *);
 
 CreateDevice_t oCreateDevice = nullptr;
 CreateImageSurface_t oCreateImageSurface = nullptr;
+EnumAdapterModes_t oEnumAdapterModes = nullptr;
 D3DCAPS8 caps;
 
 IDirect3DDevice8* GetGameDevice() {
@@ -536,7 +538,7 @@ void PrintMemoryRange(uintptr_t start_addr, uintptr_t end_addr, const char* labe
             for (size_t i = 0; i + 3 < size; i += 4) {
                 uint32_t value = *reinterpret_cast<const uint32_t*>(&buffer[i]);
                 uint32_t offset = start_addr+(unsigned int)i;
-                WriteLogf(label, "    [%04X]: 0x%08X (%u) (%x)", (unsigned int)i, offset, value, value);
+                WriteLogf(label, "    [%04X]: 0x%08X int(%u) hex(%x)", (unsigned int)i, offset, value, value);
                 if (i >= (size-1)) { 
                     WriteLogf(label, "    ... (END)");
                     break;
@@ -558,6 +560,14 @@ void PrintMemoryRange(uintptr_t start_addr, uintptr_t end_addr, const char* labe
     }
 }
 
+HRESULT WINAPI hkEnumAdapterModes(THIS_ UINT Adapter, UINT Mode, D3DDISPLAYMODE * pMode)
+{
+
+    HRESULT result = oEnumAdapterModes(Adapter, Mode, pMode);
+    WriteLogf("EnumAdapterModes", "Enum Mode Data: %x | %x | %x", Adapter, Mode, pMode);
+    return result;
+}
+
 HRESULT WINAPI hkCreateDevice(IDirect3D8* pD3D, UINT Adapter, D3DDEVTYPE DeviceType, 
                              HWND hFocusWindow, DWORD BehaviorFlags, 
                              D3DPRESENT_PARAMETERS* pPresentationParameters,
@@ -576,10 +586,8 @@ HRESULT WINAPI hkCreateDevice(IDirect3D8* pD3D, UINT Adapter, D3DDEVTYPE DeviceT
     WriteLogf("D3DDISPLAYMODE", "Memory is [%s]", (isValid ? "Valid" : "Invalid"));
     
     PrintD3DDisplayMode((D3DDISPLAYMODE*)0x14ce77c, "D3DDISPLAYMODE");
-    PrintD3DDisplayMode((D3DDISPLAYMODE*)0x14ce860, "ORIGIN_MEMORY_TARGET");
     
-    PrintMemoryRange(0x14ce77c, 0x14ce77c+0x34, "UNKNOWN_MEMORY_TARGET", true, true);
-    PrintMemoryRange(0x14ce860, 0x14ce860+0x34, "ORIGIN_MEMORY_TARGET", true, true);
+    PrintMemoryRange(0x14ce77c, 0x14ce8a4, "MEMORY_DUMP_77C_TO_8A4", true, true);
 
     PrintD3DPresentParameters((D3DPRESENT_PARAMETERS*)0x14ce860, "ORIGIN_MEMORY_TARGET");
 
@@ -687,12 +695,32 @@ bool HookCreateDevice() {
         return false;
     }
 
+    void* pEnumDeviceModes = vtable[7];
+    if(MH_CreateHook(pEnumDeviceModes, reinterpret_cast<LPVOID>(hkEnumAdapterModes),
+        reinterpret_cast<void**>(&oEnumAdapterModes)) != MH_OK)
+    {
+        WriteLogSimple("[-], MH_EnableHook failed for EnumDeviceModes");
+        return false;
+    } 
+
+    WriteLogSimple("[+] Successfully hooked IDirect3D8::EnumDeviceModes");
     WriteLogSimple("[+] Successfully hooked IDirect3D8::CreateDevice");
     return true;
 }
 
+typedef HRESULT(WINAPI* TestCooperativeLevel_t)();
+TestCooperativeLevel_t oTestCooperativeLevel = nullptr;
+
+HRESULT WINAPI hkTestCooperativeLevel()
+{
+    HRESULT result = oTestCooperativeLevel();
+    WriteLogf("TestCooperativeLevel", "Called into Function returning: [%s]", result == D3D_OK ? "True" : "False");
+    return result;
+}
+
 bool SetupDeviceHooks() {
-    HookInfo hooks[] = {{"CreateImageSurface", 27, reinterpret_cast<void*>(hkCreateImageSurface), reinterpret_cast<void**>(&oCreateImageSurface)}};
+    HookInfo hooks[] = {{"CreateImageSurface", 27, reinterpret_cast<void*>(hkCreateImageSurface), reinterpret_cast<void**>(&oCreateImageSurface)},
+                        {"TestCooperativeLevel", 3, reinterpret_cast<void*>(hkTestCooperativeLevel), reinterpret_cast<void**>(&oTestCooperativeLevel)}};
 
     bool all_success = true;
     for (const auto& hook : hooks) {
