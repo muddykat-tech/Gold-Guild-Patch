@@ -5,7 +5,7 @@ DLL_CFLAGS = -O0 -g -std=c++11 ${WARNS} -Iinclude -DADD_EXPORTS -fpermissive -m3
 DLL_LDFLAGS = -m32 -shared -static-libgcc -static-libstdc++ -s -Wl,-Bstatic,--whole-archive -lwinpthread -Wl,--no-whole-archive -Wl,--subsystem,windows,--out-implib,lib/lib.a
 FW_LDFLAGS = -m32 -shared -static-libgcc -static-libstdc++ -s -Wl,-Bstatic,--whole-archive -lwinpthread -Wl,--no-whole-archive -Wl,--subsystem,windows,--out-implib,lib/patch.a
 
-NTERNALS_OBJ = obj/patch.o obj/asi.o obj/logger.o
+NTERNALS_OBJ = obj/patch.o obj/asi.o obj/logger.o obj/d3d8Validation.o
 MINHOOK_SRC = src/MinHook/buffer.c src/MinHook/hook.c src/MinHook/trampoline.c src/MinHook/hde32.c
 MINHOOK_OBJ = obj/buffer.o obj/hook.o obj/trampoline.o obj/hde32.o
 
@@ -45,16 +45,19 @@ obj/hook.o: src/MinHook/hook.c | obj
 
 obj/trampoline.o: src/MinHook/trampoline.c | obj
 	${CC_C} -c $< -o $@
-	
+
 obj/logger.o: src/logger.c | obj
 	${CC_C} -c $< -o $@
 
 obj/asi.o: src/asi/asi.cpp src/asi/asi.h | obj
 	${CC} ${DLL_CFLAGS} -c "$<" -o "$@"
 
+obj/d3d8Validation.o:  ${INTERNALS_SRC}/d3d8Validation.cpp ${INTERNALS_SRC}/d3d8Validation.h | obj
+	${CC} ${DLL_CFLAGS} -c "$<" -o "$@"
+
 bin/patch.asi: $(NTERNALS_OBJ) $(MINHOOK_OBJ) | bin lib
 	${CC} -o "$@" ${NTERNALS_OBJ} ${MINHOOK_OBJ} ${FW_LDFLAGS}
 
-obj/patch.o: ${INTERNALS_SRC}/patch.cpp src/asi/asi.h | obj
+obj/patch.o: ${INTERNALS_SRC}/patch.cpp  ${INTERNALS_SRC}/asi/asi.h | obj
 	$(call print_colored, "================== Starting Build ==================")
 	${CC} ${DLL_CFLAGS} -c "$<" -o "$@"

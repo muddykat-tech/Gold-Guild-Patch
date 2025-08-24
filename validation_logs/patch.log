@@ -1,0 +1,1362 @@
+=== UI Patch Loading ===
+=== D3D8 Hook Initialization Started ===
+[+] Attempting to hook IDirect3D8::CreateDevice
+[+] Successfully hooked IDirect3D8::EnumDeviceModes
+[+] Successfully hooked IDirect3D8::CreateDevice
+[+] Found existing device pointer
+[+] Attempting to hook IDirect3DDevice8::CreateImageSurface
+[+] Device and CreateImageSurface method pointer are valid
+[+] Successfully hooked IDirect3DDevice8::CreateImageSurface
+[+] Attempting to hook IDirect3DDevice8::TestCooperativeLevel
+[+] Device and TestCooperativeLevel method pointer are valid
+[+] Successfully hooked IDirect3DDevice8::TestCooperativeLevel
+=== D3D8 Hook Initialization Complete ===
+=== UI Patch Loaded ===
+Called into IDirect3D8::CreateDevice
+[+] Scanning memory region 0x014ce860 - 0x014cec8c (1068 bytes)
+[!] Potential D3DDISPLAYMODE found at offset 0x0 (0x014ce860) - confidence: 91% (4/4 fields passing)
+[~] Tested D3DDEVICE_CREATION_PARAMETERS at offset 0x0 (0x014ce860) - confidence: -25% (0/4 fields passing) [REJECTED]
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x0 (0x014ce860) - confidence: 66% (8/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x0 (0x014ce860) - confidence: 93% (6/6 fields passing)
+[~] Tested D3DADAPTER_IDENTIFIER8 at offset 0x0 (0x014ce860) - confidence: 35% (1/7 fields passing) [REJECTED]
+[~] Tested D3DCAPS8 at offset 0x0 (0x014ce860) - confidence: 25% (9/18 fields passing) [REJECTED]
+[+] Identified D3DVIEWPORT8 at 0x014ce860, skipping 24 bytes to avoid overlap
+[!] Potential D3DDISPLAYMODE found at offset 0x18 (0x014ce878) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x18 (0x014ce878) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x18 (0x014ce878) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x18 (0x014ce878) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DCAPS8 found at offset 0x18 (0x014ce878) - confidence: 45% (12/18 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x1c (0x014ce87c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x1c (0x014ce87c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x1c (0x014ce87c) - confidence: 50% (6/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x1c (0x014ce87c) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x1c (0x014ce87c) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x20 (0x014ce880) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x20 (0x014ce880) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x20 (0x014ce880) - confidence: 55% (6/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x20 (0x014ce880) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x20 (0x014ce880) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x24 (0x014ce884) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x24 (0x014ce884) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x24 (0x014ce884) - confidence: 49% (6/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x24 (0x014ce884) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x24 (0x014ce884) - confidence: 31% (9/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x28 (0x014ce888) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x28 (0x014ce888) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x28 (0x014ce888) - confidence: 49% (6/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x28 (0x014ce888) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x28 (0x014ce888) - confidence: 36% (11/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x2c (0x014ce88c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x2c (0x014ce88c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x2c (0x014ce88c) - confidence: 56% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x2c (0x014ce88c) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x2c (0x014ce88c) - confidence: 30% (9/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x30 (0x014ce890) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x30 (0x014ce890) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x30 (0x014ce890) - confidence: 57% (7/11 fields passing)
+[~] Tested D3DVIEWPORT8 at offset 0x30 (0x014ce890) - confidence: 44% (4/6 fields passing) [REJECTED]
+[~] Tested D3DCAPS8 at offset 0x30 (0x014ce890) - confidence: 30% (9/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x34 (0x014ce894) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x34 (0x014ce894) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x34 (0x014ce894) - confidence: 48% (6/11 fields passing)
+[~] Tested D3DVIEWPORT8 at offset 0x34 (0x014ce894) - confidence: 44% (4/6 fields passing) [REJECTED]
+[~] Tested D3DCAPS8 at offset 0x34 (0x014ce894) - confidence: 30% (9/18 fields passing) [REJECTED]
+[~] Tested D3DDISPLAYMODE at offset 0x38 (0x014ce898) - confidence: 35% (1/4 fields passing) [REJECTED]
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x38 (0x014ce898) - confidence: 50% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x38 (0x014ce898) - confidence: 46% (6/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x38 (0x014ce898) - confidence: 49% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x38 (0x014ce898) - confidence: 33% (10/18 fields passing) [REJECTED]
+[~] Tested D3DDISPLAYMODE at offset 0x3c (0x014ce89c) - confidence: 20% (1/4 fields passing) [REJECTED]
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x3c (0x014ce89c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x3c (0x014ce89c) - confidence: 50% (5/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x3c (0x014ce89c) - confidence: 49% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x3c (0x014ce89c) - confidence: 27% (8/18 fields passing) [REJECTED]
+[~] Tested D3DDISPLAYMODE at offset 0x40 (0x014ce8a0) - confidence: 37% (2/4 fields passing) [REJECTED]
+[~] Tested D3DDEVICE_CREATION_PARAMETERS at offset 0x40 (0x014ce8a0) - confidence: 40% (2/4 fields passing) [REJECTED]
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x40 (0x014ce8a0) - confidence: 45% (6/11 fields passing)
+[~] Tested D3DVIEWPORT8 at offset 0x40 (0x014ce8a0) - confidence: 28% (3/6 fields passing) [REJECTED]
+[~] Tested D3DCAPS8 at offset 0x40 (0x014ce8a0) - confidence: 25% (8/18 fields passing) [REJECTED]
+[~] Tested D3DDISPLAYMODE at offset 0x44 (0x014ce8a4) - confidence: 37% (2/4 fields passing) [REJECTED]
+[~] Tested D3DDEVICE_CREATION_PARAMETERS at offset 0x44 (0x014ce8a4) - confidence: 27% (1/4 fields passing) [REJECTED]
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x44 (0x014ce8a4) - confidence: 45% (6/11 fields passing)
+[~] Tested D3DVIEWPORT8 at offset 0x44 (0x014ce8a4) - confidence: 28% (3/6 fields passing) [REJECTED]
+[~] Tested D3DCAPS8 at offset 0x44 (0x014ce8a4) - confidence: 32% (11/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x48 (0x014ce8a8) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x48 (0x014ce8a8) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x48 (0x014ce8a8) - confidence: 56% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x48 (0x014ce8a8) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x48 (0x014ce8a8) - confidence: 34% (9/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x4c (0x014ce8ac) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x4c (0x014ce8ac) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x4c (0x014ce8ac) - confidence: 52% (6/11 fields passing)
+[~] Tested D3DVIEWPORT8 at offset 0x4c (0x014ce8ac) - confidence: 44% (4/6 fields passing) [REJECTED]
+[~] Tested D3DCAPS8 at offset 0x4c (0x014ce8ac) - confidence: 33% (9/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x50 (0x014ce8b0) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x50 (0x014ce8b0) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x50 (0x014ce8b0) - confidence: 48% (6/11 fields passing)
+[~] Tested D3DVIEWPORT8 at offset 0x50 (0x014ce8b0) - confidence: 44% (4/6 fields passing) [REJECTED]
+[~] Tested D3DCAPS8 at offset 0x50 (0x014ce8b0) - confidence: 31% (8/18 fields passing) [REJECTED]
+[~] Tested D3DDISPLAYMODE at offset 0x54 (0x014ce8b4) - confidence: 35% (1/4 fields passing) [REJECTED]
+[~] Tested D3DDEVICE_CREATION_PARAMETERS at offset 0x54 (0x014ce8b4) - confidence: 32% (2/4 fields passing) [REJECTED]
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x54 (0x014ce8b4) - confidence: 55% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x54 (0x014ce8b4) - confidence: 49% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x54 (0x014ce8b4) - confidence: 38% (11/18 fields passing) [REJECTED]
+[~] Tested D3DDISPLAYMODE at offset 0x58 (0x014ce8b8) - confidence: 20% (1/4 fields passing) [REJECTED]
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x58 (0x014ce8b8) - confidence: 47% (2/4 fields passing)
+[~] Tested D3DPRESENT_PARAMETERS at offset 0x58 (0x014ce8b8) - confidence: 43% (5/11 fields passing) [REJECTED]
+[!] Potential D3DVIEWPORT8 found at offset 0x58 (0x014ce8b8) - confidence: 49% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x58 (0x014ce8b8) - confidence: 30% (9/18 fields passing) [REJECTED]
+[~] Tested D3DDISPLAYMODE at offset 0x5c (0x014ce8bc) - confidence: 37% (2/4 fields passing) [REJECTED]
+[~] Tested D3DDEVICE_CREATION_PARAMETERS at offset 0x5c (0x014ce8bc) - confidence: 40% (2/4 fields passing) [REJECTED]
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x5c (0x014ce8bc) - confidence: 62% (8/11 fields passing)
+[~] Tested D3DVIEWPORT8 at offset 0x5c (0x014ce8bc) - confidence: 27% (3/6 fields passing) [REJECTED]
+[~] Tested D3DCAPS8 at offset 0x5c (0x014ce8bc) - confidence: 31% (9/18 fields passing) [REJECTED]
+[+] Identified D3DPRESENT_PARAMETERS at 0x014ce8bc, skipping 52 bytes to avoid overlap
+[!] Potential D3DDISPLAYMODE found at offset 0x90 (0x014ce8f0) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x90 (0x014ce8f0) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x90 (0x014ce8f0) - confidence: 49% (6/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x90 (0x014ce8f0) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x90 (0x014ce8f0) - confidence: 37% (11/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x94 (0x014ce8f4) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x94 (0x014ce8f4) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x94 (0x014ce8f4) - confidence: 56% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x94 (0x014ce8f4) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x94 (0x014ce8f4) - confidence: 30% (9/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x98 (0x014ce8f8) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x98 (0x014ce8f8) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x98 (0x014ce8f8) - confidence: 48% (6/11 fields passing)
+[~] Tested D3DVIEWPORT8 at offset 0x98 (0x014ce8f8) - confidence: 44% (4/6 fields passing) [REJECTED]
+[~] Tested D3DCAPS8 at offset 0x98 (0x014ce8f8) - confidence: 30% (9/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x9c (0x014ce8fc) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x9c (0x014ce8fc) - confidence: 55% (2/4 fields passing)
+[~] Tested D3DPRESENT_PARAMETERS at offset 0x9c (0x014ce8fc) - confidence: 44% (5/11 fields passing) [REJECTED]
+[~] Tested D3DVIEWPORT8 at offset 0x9c (0x014ce8fc) - confidence: 44% (4/6 fields passing) [REJECTED]
+[~] Tested D3DCAPS8 at offset 0x9c (0x014ce8fc) - confidence: 28% (8/18 fields passing) [REJECTED]
+[~] Tested D3DDISPLAYMODE at offset 0xa0 (0x014ce900) - confidence: 35% (1/4 fields passing) [REJECTED]
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0xa0 (0x014ce900) - confidence: 52% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0xa0 (0x014ce900) - confidence: 45% (6/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0xa0 (0x014ce900) - confidence: 49% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0xa0 (0x014ce900) - confidence: 27% (8/18 fields passing) [REJECTED]
+[~] Tested D3DDISPLAYMODE at offset 0xa4 (0x014ce904) - confidence: 20% (1/4 fields passing) [REJECTED]
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0xa4 (0x014ce904) - confidence: 47% (2/4 fields passing)
+[~] Tested D3DPRESENT_PARAMETERS at offset 0xa4 (0x014ce904) - confidence: 44% (5/11 fields passing) [REJECTED]
+[!] Potential D3DVIEWPORT8 found at offset 0xa4 (0x014ce904) - confidence: 49% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0xa4 (0x014ce904) - confidence: 31% (10/18 fields passing) [REJECTED]
+[~] Tested D3DDISPLAYMODE at offset 0xa8 (0x014ce908) - confidence: 37% (2/4 fields passing) [REJECTED]
+[~] Tested D3DDEVICE_CREATION_PARAMETERS at offset 0xa8 (0x014ce908) - confidence: 40% (2/4 fields passing) [REJECTED]
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0xa8 (0x014ce908) - confidence: 52% (7/11 fields passing)
+[~] Tested D3DVIEWPORT8 at offset 0xa8 (0x014ce908) - confidence: 28% (3/6 fields passing) [REJECTED]
+[~] Tested D3DCAPS8 at offset 0xa8 (0x014ce908) - confidence: 20% (7/18 fields passing) [REJECTED]
+[~] Tested D3DDISPLAYMODE at offset 0xac (0x014ce90c) - confidence: 37% (2/4 fields passing) [REJECTED]
+[~] Tested D3DDEVICE_CREATION_PARAMETERS at offset 0xac (0x014ce90c) - confidence: 27% (1/4 fields passing) [REJECTED]
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0xac (0x014ce90c) - confidence: 49% (6/11 fields passing)
+[~] Tested D3DVIEWPORT8 at offset 0xac (0x014ce90c) - confidence: 27% (3/6 fields passing) [REJECTED]
+[~] Tested D3DCAPS8 at offset 0xac (0x014ce90c) - confidence: 26% (9/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0xb0 (0x014ce910) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0xb0 (0x014ce910) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0xb0 (0x014ce910) - confidence: 48% (6/11 fields passing)
+[~] Tested D3DVIEWPORT8 at offset 0xb0 (0x014ce910) - confidence: 44% (4/6 fields passing) [REJECTED]
+[~] Tested D3DCAPS8 at offset 0xb0 (0x014ce910) - confidence: 30% (8/18 fields passing) [REJECTED]
+[~] Tested D3DDISPLAYMODE at offset 0xb4 (0x014ce914) - confidence: 35% (1/4 fields passing) [REJECTED]
+[~] Tested D3DDEVICE_CREATION_PARAMETERS at offset 0xb4 (0x014ce914) - confidence: 32% (2/4 fields passing) [REJECTED]
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0xb4 (0x014ce914) - confidence: 55% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0xb4 (0x014ce914) - confidence: 49% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0xb4 (0x014ce914) - confidence: 41% (12/18 fields passing) [REJECTED]
+[~] Tested D3DDISPLAYMODE at offset 0xb8 (0x014ce918) - confidence: 20% (1/4 fields passing) [REJECTED]
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0xb8 (0x014ce918) - confidence: 47% (2/4 fields passing)
+[~] Tested D3DPRESENT_PARAMETERS at offset 0xb8 (0x014ce918) - confidence: 43% (5/11 fields passing) [REJECTED]
+[!] Potential D3DVIEWPORT8 found at offset 0xb8 (0x014ce918) - confidence: 49% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0xb8 (0x014ce918) - confidence: 29% (9/18 fields passing) [REJECTED]
+[~] Tested D3DDISPLAYMODE at offset 0xbc (0x014ce91c) - confidence: 37% (2/4 fields passing) [REJECTED]
+[~] Tested D3DDEVICE_CREATION_PARAMETERS at offset 0xbc (0x014ce91c) - confidence: 40% (2/4 fields passing) [REJECTED]
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0xbc (0x014ce91c) - confidence: 62% (8/11 fields passing)
+[~] Tested D3DVIEWPORT8 at offset 0xbc (0x014ce91c) - confidence: 27% (3/6 fields passing) [REJECTED]
+[~] Tested D3DCAPS8 at offset 0xbc (0x014ce91c) - confidence: 28% (9/18 fields passing) [REJECTED]
+[+] Identified D3DPRESENT_PARAMETERS at 0x014ce91c, skipping 52 bytes to avoid overlap
+[!] Potential D3DDISPLAYMODE found at offset 0xf0 (0x014ce950) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0xf0 (0x014ce950) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0xf0 (0x014ce950) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0xf0 (0x014ce950) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0xf0 (0x014ce950) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0xf4 (0x014ce954) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0xf4 (0x014ce954) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0xf4 (0x014ce954) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0xf4 (0x014ce954) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0xf4 (0x014ce954) - confidence: 30% (9/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0xf8 (0x014ce958) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0xf8 (0x014ce958) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0xf8 (0x014ce958) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0xf8 (0x014ce958) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0xf8 (0x014ce958) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0xfc (0x014ce95c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0xfc (0x014ce95c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0xfc (0x014ce95c) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0xfc (0x014ce95c) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0xfc (0x014ce95c) - confidence: 37% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x100 (0x014ce960) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x100 (0x014ce960) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x100 (0x014ce960) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x100 (0x014ce960) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x100 (0x014ce960) - confidence: 40% (11/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x104 (0x014ce964) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x104 (0x014ce964) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x104 (0x014ce964) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x104 (0x014ce964) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x104 (0x014ce964) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x108 (0x014ce968) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x108 (0x014ce968) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x108 (0x014ce968) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x108 (0x014ce968) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x108 (0x014ce968) - confidence: 37% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x10c (0x014ce96c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x10c (0x014ce96c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x10c (0x014ce96c) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x10c (0x014ce96c) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x10c (0x014ce96c) - confidence: 37% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x110 (0x014ce970) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x110 (0x014ce970) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x110 (0x014ce970) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x110 (0x014ce970) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x110 (0x014ce970) - confidence: 37% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x114 (0x014ce974) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x114 (0x014ce974) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x114 (0x014ce974) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x114 (0x014ce974) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x114 (0x014ce974) - confidence: 37% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x118 (0x014ce978) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x118 (0x014ce978) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x118 (0x014ce978) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x118 (0x014ce978) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x118 (0x014ce978) - confidence: 40% (11/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x11c (0x014ce97c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x11c (0x014ce97c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x11c (0x014ce97c) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x11c (0x014ce97c) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x11c (0x014ce97c) - confidence: 40% (11/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x120 (0x014ce980) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x120 (0x014ce980) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x120 (0x014ce980) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x120 (0x014ce980) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DCAPS8 found at offset 0x120 (0x014ce980) - confidence: 46% (12/18 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x124 (0x014ce984) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x124 (0x014ce984) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x124 (0x014ce984) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x124 (0x014ce984) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DCAPS8 found at offset 0x124 (0x014ce984) - confidence: 46% (12/18 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x128 (0x014ce988) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x128 (0x014ce988) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x128 (0x014ce988) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x128 (0x014ce988) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x128 (0x014ce988) - confidence: 40% (11/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x12c (0x014ce98c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x12c (0x014ce98c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x12c (0x014ce98c) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x12c (0x014ce98c) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x12c (0x014ce98c) - confidence: 40% (11/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x130 (0x014ce990) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x130 (0x014ce990) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x130 (0x014ce990) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x130 (0x014ce990) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x130 (0x014ce990) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x134 (0x014ce994) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x134 (0x014ce994) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x134 (0x014ce994) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x134 (0x014ce994) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x134 (0x014ce994) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x138 (0x014ce998) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x138 (0x014ce998) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x138 (0x014ce998) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x138 (0x014ce998) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x138 (0x014ce998) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x13c (0x014ce99c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x13c (0x014ce99c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x13c (0x014ce99c) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x13c (0x014ce99c) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x13c (0x014ce99c) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x140 (0x014ce9a0) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x140 (0x014ce9a0) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x140 (0x014ce9a0) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x140 (0x014ce9a0) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x140 (0x014ce9a0) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x144 (0x014ce9a4) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x144 (0x014ce9a4) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x144 (0x014ce9a4) - confidence: 50% (6/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x144 (0x014ce9a4) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x144 (0x014ce9a4) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x148 (0x014ce9a8) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x148 (0x014ce9a8) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x148 (0x014ce9a8) - confidence: 55% (6/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x148 (0x014ce9a8) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x148 (0x014ce9a8) - confidence: 31% (9/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x14c (0x014ce9ac) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x14c (0x014ce9ac) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x14c (0x014ce9ac) - confidence: 49% (6/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x14c (0x014ce9ac) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x14c (0x014ce9ac) - confidence: 31% (9/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x150 (0x014ce9b0) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x150 (0x014ce9b0) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x150 (0x014ce9b0) - confidence: 49% (6/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x150 (0x014ce9b0) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x150 (0x014ce9b0) - confidence: 35% (11/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x154 (0x014ce9b4) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x154 (0x014ce9b4) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x154 (0x014ce9b4) - confidence: 56% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x154 (0x014ce9b4) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x154 (0x014ce9b4) - confidence: 34% (9/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x158 (0x014ce9b8) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x158 (0x014ce9b8) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x158 (0x014ce9b8) - confidence: 52% (6/11 fields passing)
+[~] Tested D3DVIEWPORT8 at offset 0x158 (0x014ce9b8) - confidence: 44% (4/6 fields passing) [REJECTED]
+[~] Tested D3DCAPS8 at offset 0x158 (0x014ce9b8) - confidence: 33% (9/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x15c (0x014ce9bc) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x15c (0x014ce9bc) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x15c (0x014ce9bc) - confidence: 48% (6/11 fields passing)
+[~] Tested D3DVIEWPORT8 at offset 0x15c (0x014ce9bc) - confidence: 44% (4/6 fields passing) [REJECTED]
+[~] Tested D3DCAPS8 at offset 0x15c (0x014ce9bc) - confidence: 31% (8/18 fields passing) [REJECTED]
+[~] Tested D3DDISPLAYMODE at offset 0x160 (0x014ce9c0) - confidence: 35% (1/4 fields passing) [REJECTED]
+[~] Tested D3DDEVICE_CREATION_PARAMETERS at offset 0x160 (0x014ce9c0) - confidence: 32% (2/4 fields passing) [REJECTED]
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x160 (0x014ce9c0) - confidence: 51% (6/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x160 (0x014ce9c0) - confidence: 49% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x160 (0x014ce9c0) - confidence: 38% (11/18 fields passing) [REJECTED]
+[~] Tested D3DDISPLAYMODE at offset 0x164 (0x014ce9c4) - confidence: 20% (1/4 fields passing) [REJECTED]
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x164 (0x014ce9c4) - confidence: 47% (2/4 fields passing)
+[~] Tested D3DPRESENT_PARAMETERS at offset 0x164 (0x014ce9c4) - confidence: 43% (5/11 fields passing) [REJECTED]
+[!] Potential D3DVIEWPORT8 found at offset 0x164 (0x014ce9c4) - confidence: 49% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x164 (0x014ce9c4) - confidence: 27% (8/18 fields passing) [REJECTED]
+[~] Tested D3DDISPLAYMODE at offset 0x168 (0x014ce9c8) - confidence: 37% (2/4 fields passing) [REJECTED]
+[~] Tested D3DDEVICE_CREATION_PARAMETERS at offset 0x168 (0x014ce9c8) - confidence: 40% (2/4 fields passing) [REJECTED]
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x168 (0x014ce9c8) - confidence: 62% (8/11 fields passing)
+[~] Tested D3DVIEWPORT8 at offset 0x168 (0x014ce9c8) - confidence: 27% (3/6 fields passing) [REJECTED]
+[~] Tested D3DCAPS8 at offset 0x168 (0x014ce9c8) - confidence: 29% (10/18 fields passing) [REJECTED]
+[+] Identified D3DPRESENT_PARAMETERS at 0x014ce9c8, skipping 52 bytes to avoid overlap
+[!] Potential D3DDISPLAYMODE found at offset 0x19c (0x014ce9fc) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x19c (0x014ce9fc) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x19c (0x014ce9fc) - confidence: 49% (6/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x19c (0x014ce9fc) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x19c (0x014ce9fc) - confidence: 37% (11/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x1a0 (0x014cea00) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x1a0 (0x014cea00) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x1a0 (0x014cea00) - confidence: 56% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x1a0 (0x014cea00) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x1a0 (0x014cea00) - confidence: 30% (9/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x1a4 (0x014cea04) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x1a4 (0x014cea04) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x1a4 (0x014cea04) - confidence: 57% (7/11 fields passing)
+[~] Tested D3DVIEWPORT8 at offset 0x1a4 (0x014cea04) - confidence: 44% (4/6 fields passing) [REJECTED]
+[~] Tested D3DCAPS8 at offset 0x1a4 (0x014cea04) - confidence: 30% (9/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x1a8 (0x014cea08) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x1a8 (0x014cea08) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x1a8 (0x014cea08) - confidence: 48% (6/11 fields passing)
+[~] Tested D3DVIEWPORT8 at offset 0x1a8 (0x014cea08) - confidence: 44% (4/6 fields passing) [REJECTED]
+[~] Tested D3DCAPS8 at offset 0x1a8 (0x014cea08) - confidence: 30% (9/18 fields passing) [REJECTED]
+[~] Tested D3DDISPLAYMODE at offset 0x1ac (0x014cea0c) - confidence: 35% (1/4 fields passing) [REJECTED]
+[~] Tested D3DDEVICE_CREATION_PARAMETERS at offset 0x1ac (0x014cea0c) - confidence: 32% (2/4 fields passing) [REJECTED]
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x1ac (0x014cea0c) - confidence: 55% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x1ac (0x014cea0c) - confidence: 49% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x1ac (0x014cea0c) - confidence: 33% (10/18 fields passing) [REJECTED]
+[~] Tested D3DDISPLAYMODE at offset 0x1b0 (0x014cea10) - confidence: 20% (1/4 fields passing) [REJECTED]
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x1b0 (0x014cea10) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x1b0 (0x014cea10) - confidence: 55% (6/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x1b0 (0x014cea10) - confidence: 49% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x1b0 (0x014cea10) - confidence: 30% (9/18 fields passing) [REJECTED]
+[~] Tested D3DDISPLAYMODE at offset 0x1b4 (0x014cea14) - confidence: 37% (2/4 fields passing) [REJECTED]
+[~] Tested D3DDEVICE_CREATION_PARAMETERS at offset 0x1b4 (0x014cea14) - confidence: 40% (2/4 fields passing) [REJECTED]
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x1b4 (0x014cea14) - confidence: 55% (7/11 fields passing)
+[~] Tested D3DVIEWPORT8 at offset 0x1b4 (0x014cea14) - confidence: 28% (3/6 fields passing) [REJECTED]
+[~] Tested D3DCAPS8 at offset 0x1b4 (0x014cea14) - confidence: 27% (9/18 fields passing) [REJECTED]
+[~] Tested D3DDISPLAYMODE at offset 0x1b8 (0x014cea18) - confidence: 37% (2/4 fields passing) [REJECTED]
+[~] Tested D3DDEVICE_CREATION_PARAMETERS at offset 0x1b8 (0x014cea18) - confidence: 27% (1/4 fields passing) [REJECTED]
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x1b8 (0x014cea18) - confidence: 55% (7/11 fields passing)
+[~] Tested D3DVIEWPORT8 at offset 0x1b8 (0x014cea18) - confidence: 28% (3/6 fields passing) [REJECTED]
+[~] Tested D3DCAPS8 at offset 0x1b8 (0x014cea18) - confidence: 30% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x1bc (0x014cea1c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x1bc (0x014cea1c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x1bc (0x014cea1c) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x1bc (0x014cea1c) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x1bc (0x014cea1c) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x1c0 (0x014cea20) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x1c0 (0x014cea20) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x1c0 (0x014cea20) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x1c0 (0x014cea20) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x1c0 (0x014cea20) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x1c4 (0x014cea24) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x1c4 (0x014cea24) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x1c4 (0x014cea24) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x1c4 (0x014cea24) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x1c4 (0x014cea24) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x1c8 (0x014cea28) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x1c8 (0x014cea28) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x1c8 (0x014cea28) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x1c8 (0x014cea28) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x1c8 (0x014cea28) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x1cc (0x014cea2c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x1cc (0x014cea2c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x1cc (0x014cea2c) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x1cc (0x014cea2c) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x1cc (0x014cea2c) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x1d0 (0x014cea30) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x1d0 (0x014cea30) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x1d0 (0x014cea30) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x1d0 (0x014cea30) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x1d0 (0x014cea30) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x1d4 (0x014cea34) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x1d4 (0x014cea34) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x1d4 (0x014cea34) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x1d4 (0x014cea34) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x1d4 (0x014cea34) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x1d8 (0x014cea38) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x1d8 (0x014cea38) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x1d8 (0x014cea38) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x1d8 (0x014cea38) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x1d8 (0x014cea38) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x1dc (0x014cea3c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x1dc (0x014cea3c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x1dc (0x014cea3c) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x1dc (0x014cea3c) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x1dc (0x014cea3c) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x1e0 (0x014cea40) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x1e0 (0x014cea40) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x1e0 (0x014cea40) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x1e0 (0x014cea40) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x1e0 (0x014cea40) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x1e4 (0x014cea44) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x1e4 (0x014cea44) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x1e4 (0x014cea44) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x1e4 (0x014cea44) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x1e4 (0x014cea44) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x1e8 (0x014cea48) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x1e8 (0x014cea48) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x1e8 (0x014cea48) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x1e8 (0x014cea48) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x1e8 (0x014cea48) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x1ec (0x014cea4c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x1ec (0x014cea4c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x1ec (0x014cea4c) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x1ec (0x014cea4c) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x1ec (0x014cea4c) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x1f0 (0x014cea50) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x1f0 (0x014cea50) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x1f0 (0x014cea50) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x1f0 (0x014cea50) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x1f0 (0x014cea50) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x1f4 (0x014cea54) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x1f4 (0x014cea54) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x1f4 (0x014cea54) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x1f4 (0x014cea54) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x1f4 (0x014cea54) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x1f8 (0x014cea58) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x1f8 (0x014cea58) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x1f8 (0x014cea58) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x1f8 (0x014cea58) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x1f8 (0x014cea58) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x1fc (0x014cea5c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x1fc (0x014cea5c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x1fc (0x014cea5c) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x1fc (0x014cea5c) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x1fc (0x014cea5c) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x200 (0x014cea60) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x200 (0x014cea60) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x200 (0x014cea60) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x200 (0x014cea60) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x200 (0x014cea60) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x204 (0x014cea64) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x204 (0x014cea64) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x204 (0x014cea64) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x204 (0x014cea64) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x204 (0x014cea64) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x208 (0x014cea68) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x208 (0x014cea68) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x208 (0x014cea68) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x208 (0x014cea68) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x208 (0x014cea68) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x20c (0x014cea6c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x20c (0x014cea6c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x20c (0x014cea6c) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x20c (0x014cea6c) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x20c (0x014cea6c) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x210 (0x014cea70) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x210 (0x014cea70) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x210 (0x014cea70) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x210 (0x014cea70) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x210 (0x014cea70) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x214 (0x014cea74) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x214 (0x014cea74) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x214 (0x014cea74) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x214 (0x014cea74) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x214 (0x014cea74) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x218 (0x014cea78) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x218 (0x014cea78) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x218 (0x014cea78) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x218 (0x014cea78) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x218 (0x014cea78) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x21c (0x014cea7c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x21c (0x014cea7c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x21c (0x014cea7c) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x21c (0x014cea7c) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x21c (0x014cea7c) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x220 (0x014cea80) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x220 (0x014cea80) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x220 (0x014cea80) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x220 (0x014cea80) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x220 (0x014cea80) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x224 (0x014cea84) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x224 (0x014cea84) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x224 (0x014cea84) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x224 (0x014cea84) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x224 (0x014cea84) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x228 (0x014cea88) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x228 (0x014cea88) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x228 (0x014cea88) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x228 (0x014cea88) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x228 (0x014cea88) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x22c (0x014cea8c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x22c (0x014cea8c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x22c (0x014cea8c) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x22c (0x014cea8c) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x22c (0x014cea8c) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x230 (0x014cea90) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x230 (0x014cea90) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x230 (0x014cea90) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x230 (0x014cea90) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x230 (0x014cea90) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x234 (0x014cea94) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x234 (0x014cea94) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x234 (0x014cea94) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x234 (0x014cea94) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x234 (0x014cea94) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x238 (0x014cea98) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x238 (0x014cea98) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x238 (0x014cea98) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x238 (0x014cea98) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x238 (0x014cea98) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x23c (0x014cea9c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x23c (0x014cea9c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x23c (0x014cea9c) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x23c (0x014cea9c) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x23c (0x014cea9c) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x240 (0x014ceaa0) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x240 (0x014ceaa0) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x240 (0x014ceaa0) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x240 (0x014ceaa0) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x240 (0x014ceaa0) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x244 (0x014ceaa4) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x244 (0x014ceaa4) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x244 (0x014ceaa4) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x244 (0x014ceaa4) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x244 (0x014ceaa4) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x248 (0x014ceaa8) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x248 (0x014ceaa8) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x248 (0x014ceaa8) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x248 (0x014ceaa8) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x248 (0x014ceaa8) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x24c (0x014ceaac) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x24c (0x014ceaac) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x24c (0x014ceaac) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x24c (0x014ceaac) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x24c (0x014ceaac) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x250 (0x014ceab0) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x250 (0x014ceab0) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x250 (0x014ceab0) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x250 (0x014ceab0) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x250 (0x014ceab0) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x254 (0x014ceab4) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x254 (0x014ceab4) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x254 (0x014ceab4) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x254 (0x014ceab4) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x254 (0x014ceab4) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x258 (0x014ceab8) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x258 (0x014ceab8) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x258 (0x014ceab8) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x258 (0x014ceab8) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x258 (0x014ceab8) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x25c (0x014ceabc) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x25c (0x014ceabc) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x25c (0x014ceabc) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x25c (0x014ceabc) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x25c (0x014ceabc) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x260 (0x014ceac0) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x260 (0x014ceac0) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x260 (0x014ceac0) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x260 (0x014ceac0) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x260 (0x014ceac0) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x264 (0x014ceac4) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x264 (0x014ceac4) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x264 (0x014ceac4) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x264 (0x014ceac4) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x264 (0x014ceac4) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x268 (0x014ceac8) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x268 (0x014ceac8) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x268 (0x014ceac8) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x268 (0x014ceac8) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x268 (0x014ceac8) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x26c (0x014ceacc) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x26c (0x014ceacc) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x26c (0x014ceacc) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x26c (0x014ceacc) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x26c (0x014ceacc) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x270 (0x014cead0) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x270 (0x014cead0) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x270 (0x014cead0) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x270 (0x014cead0) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x270 (0x014cead0) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x274 (0x014cead4) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x274 (0x014cead4) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x274 (0x014cead4) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x274 (0x014cead4) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x274 (0x014cead4) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x278 (0x014cead8) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x278 (0x014cead8) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x278 (0x014cead8) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x278 (0x014cead8) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x278 (0x014cead8) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x27c (0x014ceadc) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x27c (0x014ceadc) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x27c (0x014ceadc) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x27c (0x014ceadc) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x27c (0x014ceadc) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x280 (0x014ceae0) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x280 (0x014ceae0) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x280 (0x014ceae0) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x280 (0x014ceae0) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x280 (0x014ceae0) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x284 (0x014ceae4) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x284 (0x014ceae4) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x284 (0x014ceae4) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x284 (0x014ceae4) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x284 (0x014ceae4) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x288 (0x014ceae8) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x288 (0x014ceae8) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x288 (0x014ceae8) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x288 (0x014ceae8) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x288 (0x014ceae8) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x28c (0x014ceaec) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x28c (0x014ceaec) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x28c (0x014ceaec) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x28c (0x014ceaec) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x28c (0x014ceaec) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x290 (0x014ceaf0) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x290 (0x014ceaf0) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x290 (0x014ceaf0) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x290 (0x014ceaf0) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x290 (0x014ceaf0) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x294 (0x014ceaf4) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x294 (0x014ceaf4) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x294 (0x014ceaf4) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x294 (0x014ceaf4) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x294 (0x014ceaf4) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x298 (0x014ceaf8) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x298 (0x014ceaf8) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x298 (0x014ceaf8) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x298 (0x014ceaf8) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x298 (0x014ceaf8) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x29c (0x014ceafc) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x29c (0x014ceafc) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x29c (0x014ceafc) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x29c (0x014ceafc) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x29c (0x014ceafc) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x2a0 (0x014ceb00) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x2a0 (0x014ceb00) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x2a0 (0x014ceb00) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x2a0 (0x014ceb00) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x2a0 (0x014ceb00) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x2a4 (0x014ceb04) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x2a4 (0x014ceb04) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x2a4 (0x014ceb04) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x2a4 (0x014ceb04) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x2a4 (0x014ceb04) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x2a8 (0x014ceb08) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x2a8 (0x014ceb08) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x2a8 (0x014ceb08) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x2a8 (0x014ceb08) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x2a8 (0x014ceb08) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x2ac (0x014ceb0c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x2ac (0x014ceb0c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x2ac (0x014ceb0c) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x2ac (0x014ceb0c) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x2ac (0x014ceb0c) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x2b0 (0x014ceb10) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x2b0 (0x014ceb10) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x2b0 (0x014ceb10) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x2b0 (0x014ceb10) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x2b0 (0x014ceb10) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x2b4 (0x014ceb14) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x2b4 (0x014ceb14) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x2b4 (0x014ceb14) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x2b4 (0x014ceb14) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x2b4 (0x014ceb14) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x2b8 (0x014ceb18) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x2b8 (0x014ceb18) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x2b8 (0x014ceb18) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x2b8 (0x014ceb18) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x2b8 (0x014ceb18) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x2bc (0x014ceb1c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x2bc (0x014ceb1c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x2bc (0x014ceb1c) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x2bc (0x014ceb1c) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x2bc (0x014ceb1c) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x2c0 (0x014ceb20) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x2c0 (0x014ceb20) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x2c0 (0x014ceb20) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x2c0 (0x014ceb20) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x2c0 (0x014ceb20) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x2c4 (0x014ceb24) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x2c4 (0x014ceb24) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x2c4 (0x014ceb24) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x2c4 (0x014ceb24) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x2c4 (0x014ceb24) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x2c8 (0x014ceb28) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x2c8 (0x014ceb28) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x2c8 (0x014ceb28) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x2c8 (0x014ceb28) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x2c8 (0x014ceb28) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x2cc (0x014ceb2c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x2cc (0x014ceb2c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x2cc (0x014ceb2c) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x2cc (0x014ceb2c) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x2cc (0x014ceb2c) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x2d0 (0x014ceb30) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x2d0 (0x014ceb30) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x2d0 (0x014ceb30) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x2d0 (0x014ceb30) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x2d0 (0x014ceb30) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x2d4 (0x014ceb34) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x2d4 (0x014ceb34) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x2d4 (0x014ceb34) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x2d4 (0x014ceb34) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x2d4 (0x014ceb34) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x2d8 (0x014ceb38) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x2d8 (0x014ceb38) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x2d8 (0x014ceb38) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x2d8 (0x014ceb38) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x2d8 (0x014ceb38) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x2dc (0x014ceb3c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x2dc (0x014ceb3c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x2dc (0x014ceb3c) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x2dc (0x014ceb3c) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x2dc (0x014ceb3c) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x2e0 (0x014ceb40) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x2e0 (0x014ceb40) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x2e0 (0x014ceb40) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x2e0 (0x014ceb40) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x2e0 (0x014ceb40) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x2e4 (0x014ceb44) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x2e4 (0x014ceb44) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x2e4 (0x014ceb44) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x2e4 (0x014ceb44) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x2e4 (0x014ceb44) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x2e8 (0x014ceb48) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x2e8 (0x014ceb48) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x2e8 (0x014ceb48) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x2e8 (0x014ceb48) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x2e8 (0x014ceb48) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x2ec (0x014ceb4c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x2ec (0x014ceb4c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x2ec (0x014ceb4c) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x2ec (0x014ceb4c) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x2ec (0x014ceb4c) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x2f0 (0x014ceb50) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x2f0 (0x014ceb50) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x2f0 (0x014ceb50) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x2f0 (0x014ceb50) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x2f0 (0x014ceb50) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x2f4 (0x014ceb54) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x2f4 (0x014ceb54) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x2f4 (0x014ceb54) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x2f4 (0x014ceb54) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x2f4 (0x014ceb54) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x2f8 (0x014ceb58) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x2f8 (0x014ceb58) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x2f8 (0x014ceb58) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x2f8 (0x014ceb58) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x2f8 (0x014ceb58) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x2fc (0x014ceb5c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x2fc (0x014ceb5c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x2fc (0x014ceb5c) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x2fc (0x014ceb5c) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x2fc (0x014ceb5c) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x300 (0x014ceb60) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x300 (0x014ceb60) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x300 (0x014ceb60) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x300 (0x014ceb60) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x300 (0x014ceb60) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x304 (0x014ceb64) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x304 (0x014ceb64) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x304 (0x014ceb64) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x304 (0x014ceb64) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x304 (0x014ceb64) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x308 (0x014ceb68) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x308 (0x014ceb68) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x308 (0x014ceb68) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x308 (0x014ceb68) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x308 (0x014ceb68) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x30c (0x014ceb6c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x30c (0x014ceb6c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x30c (0x014ceb6c) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x30c (0x014ceb6c) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x30c (0x014ceb6c) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x310 (0x014ceb70) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x310 (0x014ceb70) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x310 (0x014ceb70) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x310 (0x014ceb70) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x310 (0x014ceb70) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x314 (0x014ceb74) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x314 (0x014ceb74) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x314 (0x014ceb74) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x314 (0x014ceb74) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x314 (0x014ceb74) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x318 (0x014ceb78) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x318 (0x014ceb78) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x318 (0x014ceb78) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x318 (0x014ceb78) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x318 (0x014ceb78) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x31c (0x014ceb7c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x31c (0x014ceb7c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x31c (0x014ceb7c) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x31c (0x014ceb7c) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x31c (0x014ceb7c) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x320 (0x014ceb80) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x320 (0x014ceb80) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x320 (0x014ceb80) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x320 (0x014ceb80) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x320 (0x014ceb80) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x324 (0x014ceb84) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x324 (0x014ceb84) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x324 (0x014ceb84) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x324 (0x014ceb84) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x324 (0x014ceb84) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x328 (0x014ceb88) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x328 (0x014ceb88) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x328 (0x014ceb88) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x328 (0x014ceb88) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x328 (0x014ceb88) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x32c (0x014ceb8c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x32c (0x014ceb8c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x32c (0x014ceb8c) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x32c (0x014ceb8c) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x32c (0x014ceb8c) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x330 (0x014ceb90) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x330 (0x014ceb90) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x330 (0x014ceb90) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x330 (0x014ceb90) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x330 (0x014ceb90) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x334 (0x014ceb94) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x334 (0x014ceb94) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x334 (0x014ceb94) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x334 (0x014ceb94) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x334 (0x014ceb94) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x338 (0x014ceb98) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x338 (0x014ceb98) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x338 (0x014ceb98) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x338 (0x014ceb98) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x338 (0x014ceb98) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x33c (0x014ceb9c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x33c (0x014ceb9c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x33c (0x014ceb9c) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x33c (0x014ceb9c) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x33c (0x014ceb9c) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x340 (0x014ceba0) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x340 (0x014ceba0) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x340 (0x014ceba0) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x340 (0x014ceba0) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x340 (0x014ceba0) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x344 (0x014ceba4) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x344 (0x014ceba4) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x344 (0x014ceba4) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x344 (0x014ceba4) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x344 (0x014ceba4) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x348 (0x014ceba8) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x348 (0x014ceba8) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x348 (0x014ceba8) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x348 (0x014ceba8) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x348 (0x014ceba8) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x34c (0x014cebac) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x34c (0x014cebac) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x34c (0x014cebac) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x34c (0x014cebac) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x34c (0x014cebac) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x350 (0x014cebb0) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x350 (0x014cebb0) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x350 (0x014cebb0) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x350 (0x014cebb0) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x350 (0x014cebb0) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x354 (0x014cebb4) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x354 (0x014cebb4) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x354 (0x014cebb4) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x354 (0x014cebb4) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x354 (0x014cebb4) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x358 (0x014cebb8) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x358 (0x014cebb8) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x358 (0x014cebb8) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x358 (0x014cebb8) - confidence: 45% (4/6 fields passing)
+[~] Tested D3DCAPS8 at offset 0x358 (0x014cebb8) - confidence: 33% (10/18 fields passing) [REJECTED]
+[!] Potential D3DDISPLAYMODE found at offset 0x35c (0x014cebbc) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x35c (0x014cebbc) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x35c (0x014cebbc) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x35c (0x014cebbc) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x360 (0x014cebc0) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x360 (0x014cebc0) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x360 (0x014cebc0) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x360 (0x014cebc0) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x364 (0x014cebc4) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x364 (0x014cebc4) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x364 (0x014cebc4) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x364 (0x014cebc4) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x368 (0x014cebc8) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x368 (0x014cebc8) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x368 (0x014cebc8) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x368 (0x014cebc8) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x36c (0x014cebcc) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x36c (0x014cebcc) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x36c (0x014cebcc) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x36c (0x014cebcc) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x370 (0x014cebd0) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x370 (0x014cebd0) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x370 (0x014cebd0) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x370 (0x014cebd0) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x374 (0x014cebd4) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x374 (0x014cebd4) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x374 (0x014cebd4) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x374 (0x014cebd4) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x378 (0x014cebd8) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x378 (0x014cebd8) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x378 (0x014cebd8) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x378 (0x014cebd8) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x37c (0x014cebdc) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x37c (0x014cebdc) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x37c (0x014cebdc) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x37c (0x014cebdc) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x380 (0x014cebe0) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x380 (0x014cebe0) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x380 (0x014cebe0) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x380 (0x014cebe0) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x384 (0x014cebe4) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x384 (0x014cebe4) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x384 (0x014cebe4) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x384 (0x014cebe4) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x388 (0x014cebe8) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x388 (0x014cebe8) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x388 (0x014cebe8) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x388 (0x014cebe8) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x38c (0x014cebec) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x38c (0x014cebec) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x38c (0x014cebec) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x38c (0x014cebec) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x390 (0x014cebf0) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x390 (0x014cebf0) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x390 (0x014cebf0) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x390 (0x014cebf0) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x394 (0x014cebf4) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x394 (0x014cebf4) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x394 (0x014cebf4) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x394 (0x014cebf4) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x398 (0x014cebf8) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x398 (0x014cebf8) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x398 (0x014cebf8) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x398 (0x014cebf8) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x39c (0x014cebfc) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x39c (0x014cebfc) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x39c (0x014cebfc) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x39c (0x014cebfc) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x3a0 (0x014cec00) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x3a0 (0x014cec00) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x3a0 (0x014cec00) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x3a0 (0x014cec00) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x3a4 (0x014cec04) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x3a4 (0x014cec04) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x3a4 (0x014cec04) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x3a4 (0x014cec04) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x3a8 (0x014cec08) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x3a8 (0x014cec08) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x3a8 (0x014cec08) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x3a8 (0x014cec08) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x3ac (0x014cec0c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x3ac (0x014cec0c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x3ac (0x014cec0c) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x3ac (0x014cec0c) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x3b0 (0x014cec10) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x3b0 (0x014cec10) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x3b0 (0x014cec10) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x3b0 (0x014cec10) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x3b4 (0x014cec14) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x3b4 (0x014cec14) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x3b4 (0x014cec14) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x3b4 (0x014cec14) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x3b8 (0x014cec18) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x3b8 (0x014cec18) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x3b8 (0x014cec18) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x3b8 (0x014cec18) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x3bc (0x014cec1c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x3bc (0x014cec1c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x3bc (0x014cec1c) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x3bc (0x014cec1c) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x3c0 (0x014cec20) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x3c0 (0x014cec20) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x3c0 (0x014cec20) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x3c0 (0x014cec20) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x3c4 (0x014cec24) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x3c4 (0x014cec24) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x3c4 (0x014cec24) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x3c4 (0x014cec24) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x3c8 (0x014cec28) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x3c8 (0x014cec28) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x3c8 (0x014cec28) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x3c8 (0x014cec28) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x3cc (0x014cec2c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x3cc (0x014cec2c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x3cc (0x014cec2c) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x3cc (0x014cec2c) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x3d0 (0x014cec30) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x3d0 (0x014cec30) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x3d0 (0x014cec30) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x3d0 (0x014cec30) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x3d4 (0x014cec34) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x3d4 (0x014cec34) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x3d4 (0x014cec34) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x3d4 (0x014cec34) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x3d8 (0x014cec38) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x3d8 (0x014cec38) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x3d8 (0x014cec38) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x3d8 (0x014cec38) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x3dc (0x014cec3c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x3dc (0x014cec3c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x3dc (0x014cec3c) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x3dc (0x014cec3c) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x3e0 (0x014cec40) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x3e0 (0x014cec40) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x3e0 (0x014cec40) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x3e0 (0x014cec40) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x3e4 (0x014cec44) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x3e4 (0x014cec44) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x3e4 (0x014cec44) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x3e4 (0x014cec44) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x3e8 (0x014cec48) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x3e8 (0x014cec48) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x3e8 (0x014cec48) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x3e8 (0x014cec48) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x3ec (0x014cec4c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x3ec (0x014cec4c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x3ec (0x014cec4c) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x3ec (0x014cec4c) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x3f0 (0x014cec50) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x3f0 (0x014cec50) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x3f0 (0x014cec50) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x3f0 (0x014cec50) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x3f4 (0x014cec54) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x3f4 (0x014cec54) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x3f4 (0x014cec54) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x3f4 (0x014cec54) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x3f8 (0x014cec58) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x3f8 (0x014cec58) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DPRESENT_PARAMETERS found at offset 0x3f8 (0x014cec58) - confidence: 59% (7/11 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x3f8 (0x014cec58) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x3fc (0x014cec5c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x3fc (0x014cec5c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x3fc (0x014cec5c) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x400 (0x014cec60) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x400 (0x014cec60) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x400 (0x014cec60) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x404 (0x014cec64) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x404 (0x014cec64) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x404 (0x014cec64) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x408 (0x014cec68) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x408 (0x014cec68) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x408 (0x014cec68) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x40c (0x014cec6c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x40c (0x014cec6c) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x40c (0x014cec6c) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x410 (0x014cec70) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x410 (0x014cec70) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x410 (0x014cec70) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x414 (0x014cec74) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x414 (0x014cec74) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DVIEWPORT8 found at offset 0x414 (0x014cec74) - confidence: 45% (4/6 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x418 (0x014cec78) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x418 (0x014cec78) - confidence: 55% (2/4 fields passing)
+[!] Potential D3DDISPLAYMODE found at offset 0x41c (0x014cec7c) - confidence: 47% (2/4 fields passing)
+[!] Potential D3DDEVICE_CREATION_PARAMETERS found at offset 0x41c (0x014cec7c) - confidence: 55% (2/4 fields passing)
+
+=== IDENTIFIED STRUCTURES ===
+Scanned Region: 0x014ce860 - 0x014cec8c (1068 bytes)
+
+┌─ D3DVIEWPORT8 at 0x014ce860 (Confidence: 93%)
+│  ├─ X: 0x00000480 (1152) [0x014ce860] (Valid screen coordinate - 90%)
+│  ├─ Y: 0x00000360 (864) [0x014ce864] (Valid screen coordinate - 90%)
+│  ├─ Width: 0x0000004D (77) [0x014ce868] (Valid viewport dimension - 95%)
+│  ├─ Height: 0x00000016 (22) [0x014ce86c] (Valid viewport dimension - 95%)
+│  ├─ MinZ: 0x00000000 (0) [0x014ce870] (MinZ = 0.0 (standard near plane) - 95%)
+│  └─ MaxZ: 0x00000000 (0) [0x014ce874] (MinZ = 0.0 (standard near plane) - 95%)
+│
+┌─ D3DPRESENT_PARAMETERS at 0x014ce8bc (Confidence: 62%)
+│  ├─ BackBufferWidth: 0x00000000 (0) [0x014ce8bc] (Zero value (possibly uninitialized) - 20%)
+│  ├─ BackBufferHeight: 0x02A001B7 (44040631) [0x014ce8c0] (Value outside expected range - -20%)
+│  ├─ BackBufferFormat: 0x00000000 (0) [0x014ce8c4] (D3DFMT_UNKNOWN (valid but unusual) - 60%)
+│  ├─ BackBufferCount: 0x00000000 (0) [0x014ce8c8] (Zero value (possibly uninitialized) - 20%)
+│  ├─ MultiSampleType: 0x00000000 (0) [0x014ce8cc] (No multisampling (most common) - 95%)
+│  ├─ SwapEffect: 0x00000001 (1) [0x014ce8d0] (Discard swap effect (most common) - 95%)
+│  ├─ hDeviceWindow: 0x00000000 (0) [0x014ce8d4] (NULL HWND (valid) - 80%)
+│  ├─ Windowed: 0x00000000 (0) [0x014ce8d8] (FALSE (valid) - 95%)
+│  ├─ EnableAutoDepthStencil: 0x00000000 (0) [0x014ce8dc] (FALSE (valid) - 95%)
+│  ├─ AutoDepthStencilFormat: 0x00000000 (0) [0x014ce8e0] (D3DFMT_UNKNOWN (valid but unusual) - 60%)
+│  └─ Flags: 0x00000000 (0) [0x014ce8e4] (No present flags (common) - 90%)
+│
+┌─ D3DPRESENT_PARAMETERS at 0x014ce91c (Confidence: 62%)
+│  ├─ BackBufferWidth: 0x00000000 (0) [0x014ce91c] (Zero value (possibly uninitialized) - 20%)
+│  ├─ BackBufferHeight: 0x02A001B7 (44040631) [0x014ce920] (Value outside expected range - -20%)
+│  ├─ BackBufferFormat: 0x00000000 (0) [0x014ce924] (D3DFMT_UNKNOWN (valid but unusual) - 60%)
+│  ├─ BackBufferCount: 0x00000000 (0) [0x014ce928] (Zero value (possibly uninitialized) - 20%)
+│  ├─ MultiSampleType: 0x00000000 (0) [0x014ce92c] (No multisampling (most common) - 95%)
+│  ├─ SwapEffect: 0x00000001 (1) [0x014ce930] (Discard swap effect (most common) - 95%)
+│  ├─ hDeviceWindow: 0x00000000 (0) [0x014ce934] (NULL HWND (valid) - 80%)
+│  ├─ Windowed: 0x00000000 (0) [0x014ce938] (FALSE (valid) - 95%)
+│  ├─ EnableAutoDepthStencil: 0x00000000 (0) [0x014ce93c] (FALSE (valid) - 95%)
+│  ├─ AutoDepthStencilFormat: 0x00000000 (0) [0x014ce940] (D3DFMT_UNKNOWN (valid but unusual) - 60%)
+│  └─ Flags: 0x00000000 (0) [0x014ce944] (No present flags (common) - 90%)
+│
+┌─ D3DPRESENT_PARAMETERS at 0x014ce9c8 (Confidence: 62%)
+│  ├─ BackBufferWidth: 0x00000000 (0) [0x014ce9c8] (Zero value (possibly uninitialized) - 20%)
+│  ├─ BackBufferHeight: 0x02A001B7 (44040631) [0x014ce9cc] (Value outside expected range - -20%)
+│  ├─ BackBufferFormat: 0x00000000 (0) [0x014ce9d0] (D3DFMT_UNKNOWN (valid but unusual) - 60%)
+│  ├─ BackBufferCount: 0x00000000 (0) [0x014ce9d4] (Zero value (possibly uninitialized) - 20%)
+│  ├─ MultiSampleType: 0x00000000 (0) [0x014ce9d8] (No multisampling (most common) - 95%)
+│  ├─ SwapEffect: 0x00000001 (1) [0x014ce9dc] (Discard swap effect (most common) - 95%)
+│  ├─ hDeviceWindow: 0x00000000 (0) [0x014ce9e0] (NULL HWND (valid) - 80%)
+│  ├─ Windowed: 0x00000001 (1) [0x014ce9e4] (TRUE (valid) - 95%)
+│  ├─ EnableAutoDepthStencil: 0x00000000 (0) [0x014ce9e8] (FALSE (valid) - 95%)
+│  ├─ AutoDepthStencilFormat: 0x00000000 (0) [0x014ce9ec] (D3DFMT_UNKNOWN (valid but unusual) - 60%)
+│  └─ Flags: 0x00000000 (0) [0x014ce9f0] (No present flags (common) - 90%)
+│
+
+=== UNIDENTIFIED MEMORY ===
+0x014ce878 | 0x0                  | Low confidence match
+0x014ce87c | 0x0                  | Low confidence match
+0x014ce880 | 0x0                  | Low confidence match
+0x014ce884 | 0x0                  | Low confidence match
+0x014ce888 | 0x0                  | Low confidence match
+0x014ce88c | 0x0                  | Low confidence match
+0x014ce890 | 0x0                  | Low confidence match
+0x014ce894 | 0x0                  | Low confidence match
+0x014ce898 | 0x0                  | Low confidence match
+0x014ce89c | 0x0                  | Low confidence match
+0x014ce8a0 | 0x40000000000000     | Low confidence match
+0x014ce8a4 | 0x400000             | Low confidence match
+0x014ce8a8 | 0x0                  | Low confidence match
+0x014ce8ac | 0x0                  | Low confidence match
+0x014ce8b0 | 0x0                  | Low confidence match
+0x014ce8b4 | 0x0                  | Low confidence match
+0x014ce8b8 | 0x0                  | Low confidence match
+0x014ce8f0 | 0x0                  | Low confidence match
+0x014ce8f4 | 0x0                  | Low confidence match
+0x014ce8f8 | 0x0                  | Low confidence match
+0x014ce8fc | 0x0                  | Low confidence match
+0x014ce900 | 0x0                  | Low confidence match
+0x014ce904 | 0x0                  | Low confidence match
+0x014ce908 | 0x1703B2C00000000    | Low confidence match
+0x014ce90c | 0x1703B2C            | Low confidence match
+0x014ce910 | 0x0                  | Low confidence match
+0x014ce914 | 0x0                  | Low confidence match
+0x014ce918 | 0x0                  | Low confidence match
+0x014ce950 | 0x0                  | Low confidence match
+0x014ce954 | 0x0                  | Low confidence match
+0x014ce958 | 0x0                  | Low confidence match
+0x014ce95c | 0x0                  | Low confidence match
+0x014ce960 | 0x0                  | Low confidence match
+0x014ce964 | 0x0                  | Low confidence match
+0x014ce968 | 0x0                  | Low confidence match
+0x014ce96c | 0x0                  | Low confidence match
+0x014ce970 | 0x0                  | Low confidence match
+0x014ce974 | 0x0                  | Low confidence match
+0x014ce978 | 0x0                  | Low confidence match
+0x014ce97c | 0x0                  | Low confidence match
+0x014ce980 | 0x0                  | Low confidence match
+0x014ce984 | 0x0                  | Low confidence match
+0x014ce988 | 0x0                  | Low confidence match
+0x014ce98c | 0x0                  | Low confidence match
+0x014ce990 | 0x0                  | Low confidence match
+0x014ce994 | 0x0                  | Low confidence match
+0x014ce998 | 0x0                  | Low confidence match
+0x014ce99c | 0x0                  | Low confidence match
+0x014ce9a0 | 0x0                  | Low confidence match
+0x014ce9a4 | 0x0                  | Low confidence match
+0x014ce9a8 | 0x0                  | Low confidence match
+0x014ce9ac | 0x0                  | Low confidence match
+0x014ce9b0 | 0x0                  | Low confidence match
+0x014ce9b4 | 0x0                  | Low confidence match
+0x014ce9b8 | 0x0                  | Low confidence match
+0x014ce9bc | 0x0                  | Low confidence match
+0x014ce9c0 | 0x0                  | Low confidence match
+0x014ce9c4 | 0x0                  | Low confidence match
+0x014ce9fc | 0x0                  | Low confidence match
+0x014cea00 | 0x0                  | Low confidence match
+0x014cea04 | 0x0                  | Low confidence match
+0x014cea08 | 0x0                  | Low confidence match
+0x014cea0c | 0x0                  | Low confidence match
+0x014cea10 | 0x0                  | Low confidence match
+0x014cea14 | 0x15B02A900000000    | Low confidence match
+0x014cea18 | 0x15B02A9            | Low confidence match
+0x014cea1c | 0x0                  | Low confidence match
+0x014cea20 | 0x0                  | Low confidence match
+0x014cea24 | 0x0                  | Low confidence match
+0x014cea28 | 0x0                  | Low confidence match
+0x014cea2c | 0x0                  | Low confidence match
+0x014cea30 | 0x0                  | Low confidence match
+0x014cea34 | 0x0                  | Low confidence match
+0x014cea38 | 0x0                  | Low confidence match
+0x014cea3c | 0x0                  | Low confidence match
+0x014cea40 | 0x0                  | Low confidence match
+0x014cea44 | 0x0                  | Low confidence match
+0x014cea48 | 0x0                  | Low confidence match
+0x014cea4c | 0x0                  | Low confidence match
+0x014cea50 | 0x0                  | Low confidence match
+0x014cea54 | 0x0                  | Low confidence match
+0x014cea58 | 0x0                  | Low confidence match
+0x014cea5c | 0x0                  | Low confidence match
+0x014cea60 | 0x0                  | Low confidence match
+0x014cea64 | 0x0                  | Low confidence match
+0x014cea68 | 0x0                  | Low confidence match
+0x014cea6c | 0x0                  | Low confidence match
+0x014cea70 | 0x0                  | Low confidence match
+0x014cea74 | 0x0                  | Low confidence match
+0x014cea78 | 0x0                  | Low confidence match
+0x014cea7c | 0x0                  | Low confidence match
+0x014cea80 | 0x0                  | Low confidence match
+0x014cea84 | 0x0                  | Low confidence match
+0x014cea88 | 0x0                  | Low confidence match
+0x014cea8c | 0x0                  | Low confidence match
+0x014cea90 | 0x0                  | Low confidence match
+0x014cea94 | 0x0                  | Low confidence match
+0x014cea98 | 0x0                  | Low confidence match
+0x014cea9c | 0x0                  | Low confidence match
+0x014ceaa0 | 0x0                  | Low confidence match
+0x014ceaa4 | 0x0                  | Low confidence match
+0x014ceaa8 | 0x0                  | Low confidence match
+0x014ceaac | 0x0                  | Low confidence match
+0x014ceab0 | 0x0                  | Low confidence match
+0x014ceab4 | 0x0                  | Low confidence match
+0x014ceab8 | 0x0                  | Low confidence match
+0x014ceabc | 0x0                  | Low confidence match
+0x014ceac0 | 0x0                  | Low confidence match
+0x014ceac4 | 0x0                  | Low confidence match
+0x014ceac8 | 0x0                  | Low confidence match
+0x014ceacc | 0x0                  | Low confidence match
+0x014cead0 | 0x0                  | Low confidence match
+0x014cead4 | 0x0                  | Low confidence match
+0x014cead8 | 0x0                  | Low confidence match
+0x014ceadc | 0x0                  | Low confidence match
+0x014ceae0 | 0x0                  | Low confidence match
+0x014ceae4 | 0x0                  | Low confidence match
+0x014ceae8 | 0x0                  | Low confidence match
+0x014ceaec | 0x0                  | Low confidence match
+0x014ceaf0 | 0x0                  | Low confidence match
+0x014ceaf4 | 0x0                  | Low confidence match
+0x014ceaf8 | 0x0                  | Low confidence match
+0x014ceafc | 0x0                  | Low confidence match
+0x014ceb00 | 0x0                  | Low confidence match
+0x014ceb04 | 0x0                  | Low confidence match
+0x014ceb08 | 0x0                  | Low confidence match
+0x014ceb0c | 0x0                  | Low confidence match
+0x014ceb10 | 0x0                  | Low confidence match
+0x014ceb14 | 0x0                  | Low confidence match
+0x014ceb18 | 0x0                  | Low confidence match
+0x014ceb1c | 0x0                  | Low confidence match
+0x014ceb20 | 0x0                  | Low confidence match
+0x014ceb24 | 0x0                  | Low confidence match
+0x014ceb28 | 0x0                  | Low confidence match
+0x014ceb2c | 0x0                  | Low confidence match
+0x014ceb30 | 0x0                  | Low confidence match
+0x014ceb34 | 0x0                  | Low confidence match
+0x014ceb38 | 0x0                  | Low confidence match
+0x014ceb3c | 0x0                  | Low confidence match
+0x014ceb40 | 0x0                  | Low confidence match
+0x014ceb44 | 0x0                  | Low confidence match
+0x014ceb48 | 0x0                  | Low confidence match
+0x014ceb4c | 0x0                  | Low confidence match
+0x014ceb50 | 0x0                  | Low confidence match
+0x014ceb54 | 0x0                  | Low confidence match
+0x014ceb58 | 0x0                  | Low confidence match
+0x014ceb5c | 0x0                  | Low confidence match
+0x014ceb60 | 0x0                  | Low confidence match
+0x014ceb64 | 0x0                  | Low confidence match
+0x014ceb68 | 0x0                  | Low confidence match
+0x014ceb6c | 0x0                  | Low confidence match
+0x014ceb70 | 0x0                  | Low confidence match
+0x014ceb74 | 0x0                  | Low confidence match
+0x014ceb78 | 0x0                  | Low confidence match
+0x014ceb7c | 0x0                  | Low confidence match
+0x014ceb80 | 0x0                  | Low confidence match
+0x014ceb84 | 0x0                  | Low confidence match
+0x014ceb88 | 0x0                  | Low confidence match
+0x014ceb8c | 0x0                  | Low confidence match
+0x014ceb90 | 0x0                  | Low confidence match
+0x014ceb94 | 0x0                  | Low confidence match
+0x014ceb98 | 0x0                  | Low confidence match
+0x014ceb9c | 0x0                  | Low confidence match
+0x014ceba0 | 0x0                  | Low confidence match
+0x014ceba4 | 0x0                  | Low confidence match
+0x014ceba8 | 0x0                  | Low confidence match
+0x014cebac | 0x0                  | Low confidence match
+0x014cebb0 | 0x0                  | Low confidence match
+0x014cebb4 | 0x0                  | Low confidence match
+0x014cebb8 | 0x0                  | Low confidence match
+0x014cebbc | 0x0                  | Low confidence match
+0x014cebc0 | 0x0                  | Low confidence match
+0x014cebc4 | 0x0                  | Low confidence match
+0x014cebc8 | 0x0                  | Low confidence match
+0x014cebcc | 0x0                  | Low confidence match
+0x014cebd0 | 0x0                  | Low confidence match
+0x014cebd4 | 0x0                  | Low confidence match
+0x014cebd8 | 0x0                  | Low confidence match
+0x014cebdc | 0x0                  | Low confidence match
+0x014cebe0 | 0x0                  | Low confidence match
+0x014cebe4 | 0x0                  | Low confidence match
+0x014cebe8 | 0x0                  | Low confidence match
+0x014cebec | 0x0                  | Low confidence match
+0x014cebf0 | 0x0                  | Low confidence match
+0x014cebf4 | 0x0                  | Low confidence match
+0x014cebf8 | 0x0                  | Low confidence match
+0x014cebfc | 0x0                  | Low confidence match
+0x014cec00 | 0x0                  | Low confidence match
+0x014cec04 | 0x0                  | Low confidence match
+0x014cec08 | 0x0                  | Low confidence match
+0x014cec0c | 0x0                  | Low confidence match
+0x014cec10 | 0x0                  | Low confidence match
+0x014cec14 | 0x0                  | Low confidence match
+0x014cec18 | 0x0                  | Low confidence match
+0x014cec1c | 0x0                  | Low confidence match
+0x014cec20 | 0x0                  | Low confidence match
+0x014cec24 | 0x0                  | Low confidence match
+0x014cec28 | 0x0                  | Low confidence match
+0x014cec2c | 0x0                  | Low confidence match
+0x014cec30 | 0x0                  | Low confidence match
+0x014cec34 | 0x0                  | Low confidence match
+0x014cec38 | 0x0                  | Low confidence match
+0x014cec3c | 0x0                  | Low confidence match
+0x014cec40 | 0x0                  | Low confidence match
+0x014cec44 | 0x0                  | Low confidence match
+0x014cec48 | 0x0                  | Low confidence match
+0x014cec4c | 0x0                  | Low confidence match
+0x014cec50 | 0x0                  | Low confidence match
+0x014cec54 | 0x0                  | Low confidence match
+0x014cec58 | 0x0                  | Low confidence match
+0x014cec5c | 0x0                  | Low confidence match
+0x014cec60 | 0x0                  | Low confidence match
+0x014cec64 | 0x0                  | Low confidence match
+0x014cec68 | 0x0                  | Low confidence match
+0x014cec6c | 0x0                  | Low confidence match
+0x014cec70 | 0x0                  | Low confidence match
+0x014cec74 | 0x0                  | Low confidence match
+0x014cec78 | 0x0                  | Low confidence match
+0x014cec7c | 0x0                  | Low confidence match
+0x014cec80 | 0x00000000 (0)       | Raw data
+0x014cec84 | 0x00000000 (0)       | Raw data
+0x014cec88 | 0x00000000 (0)       | Raw data
+
+=== SCAN STATISTICS ===
+Total memory scanned: 1068 bytes
+Memory identified as structures: 180 bytes (16.9%)
+Structures found: 4
+High confidence structures (80-100%): 1
+Medium confidence structures (60-79%): 3
+Low confidence structures (<60%): 0
+Addresses with multiple potential matches: 214
+
+=== Cleaning up hooks ===
