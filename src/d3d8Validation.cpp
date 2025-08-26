@@ -276,11 +276,11 @@ ValidationResult validate_flags(const void* field_ptr, size_t field_size, const 
 }
 
 ValidationResult validate_display_width(const void* field_ptr, size_t field_size, const char* field_name) {
-    return validate_uint_range(field_ptr, field_size, field_name, 1, 16384);
+    return validate_uint_range(field_ptr, field_size, field_name, 1, 32768);
 }
 
 ValidationResult validate_display_height(const void* field_ptr, size_t field_size, const char* field_name) {
-    return validate_uint_range(field_ptr, field_size, field_name, 1, 16384);
+    return validate_uint_range(field_ptr, field_size, field_name, 1, 32768);
 }
 
 ValidationResult validate_refresh_rate(const void* field_ptr, size_t field_size, const char* field_name) {
@@ -742,10 +742,10 @@ ValidationResult validate_caps2_flags(const void* field_ptr, size_t field_size, 
     } else if (caps2 < 0x80000000) {
         result.is_valid = true;
         result.reason = "Plausible caps2 value";
-        result.confidence = 60;
+        result.confidence = 50;
     } else {
         result.reason = "Suspicious caps2 value";
-        result.confidence = 30;
+        result.confidence = 10;
     }
     
     return result;
@@ -969,7 +969,7 @@ ValidationResult validate_max_texture_dimension(const void* field_ptr, size_t fi
     if (dimension == 0) {
         result.reason = "Zero texture dimension (invalid)";
         result.confidence = -50;
-    } else if (dimension >= 64 && dimension <= 4096) {
+    } else if (dimension >= 64 && dimension <= 16384) {
         // Check if it's a power of 2
         bool is_power_of_2 = (dimension & (dimension - 1)) == 0;
         if (is_power_of_2) {
@@ -984,14 +984,14 @@ ValidationResult validate_max_texture_dimension(const void* field_ptr, size_t fi
     } else if (dimension < 64) {
         result.is_valid = true;
         result.reason = "Small texture dimension";
-        result.confidence = 60;
-    } else if (dimension <= 8192) {
+        result.confidence = 70;
+    } else if (dimension <= 32768) {
         result.is_valid = true;
         result.reason = "Large texture dimension";
         result.confidence = 70;
     } else {
         result.reason = "Unreasonably large texture dimension";
-        result.confidence = 20;
+        result.confidence = 10;
     }
     
     return result;
@@ -1215,6 +1215,56 @@ ValidationResult validate_vendor_id(const void* field_ptr, size_t field_size, co
     return result;
 }
 
+
+ValidationResult validate_guid(const void* field_ptr, size_t field_size, const char* field_name) {
+    ValidationResult result = {false, "Invalid GUID", 0};
+    if(!field_ptr) return result;
+
+    const GUID* guid = (const GUID*) field_ptr;
+    
+    if((guid->Data4[0] & 0xC0) != 0x80)
+    {
+        return result;
+    }
+
+    uint16_t version = guid->Data3 >> 12;
+    if(version < 1 || version > 5) return result;
+    result.is_valid = true;
+    result.confidence = 70;
+    result.reason = "Possibly valid GUID";
+    return result;
+}
+
+
+ValidationResult validate_whqllevel(const void* field_ptr, size_t field_size, const char* field_name) {
+    ValidationResult result = {false, "Invalid WHQLLevel", 0};
+    if(!field_ptr) return result;
+
+    uint32_t whql = *(const uint32_t *) field_ptr;
+    if(whql == 0 || whql == 1)
+    {
+        result.is_valid = true;
+        result.confidence = 50;
+        result.reason = "Possibly valid WHQL";
+        return result;
+    }
+
+    uint16_t year = (whql >> 16) && 0xFFFF;
+    uint8_t month = (whql >> 8) && 0xFF;
+    uint8_t day = whql & 0xFF;
+
+    if(year < 1999 || month == 0 || month > 12 || day == 0 || day > 31)
+    {
+        return result;
+    }
+
+    result.is_valid = true;
+    result.confidence = 90;
+    result.reason = "WHQL Level is valid year/month/day value";
+
+    return result;  
+}
+
 #define FIELD_DESC(struct_type, field_name, validator_func) \
     { offsetof(struct_type, field_name), sizeof(((struct_type*)0)->field_name), #field_name, validator_func }
 
@@ -1223,12 +1273,15 @@ static const FieldDescriptor d3dadapter_identifier8_fields[] = {
     FIELD_DESC(D3DADAPTER_IDENTIFIER8, Description, validate_driver_string),
     FIELD_DESC(D3DADAPTER_IDENTIFIER8, DriverVersion, validate_driver_version),
     FIELD_DESC(D3DADAPTER_IDENTIFIER8, VendorId, validate_vendor_id),
-    FIELD_DESC(D3DADAPTER_IDENTIFIER8, DeviceId, validate_vendor_id), // Reuse validator
-    FIELD_DESC(D3DADAPTER_IDENTIFIER8, SubSysId, validate_vendor_id), // Reuse validator
-    FIELD_DESC(D3DADAPTER_IDENTIFIER8, Revision, validate_vendor_id), // Reuse validator
+    FIELD_DESC(D3DADAPTER_IDENTIFIER8, DeviceId, validate_vendor_id), 
+    FIELD_DESC(D3DADAPTER_IDENTIFIER8, SubSysId, validate_vendor_id),
+    FIELD_DESC(D3DADAPTER_IDENTIFIER8, Revision, validate_vendor_id), 
+
+    FIELD_DESC(D3DADAPTER_IDENTIFIER8, DeviceIdentifier, validate_guid), 
+    FIELD_DESC(D3DADAPTER_IDENTIFIER8, WHQLLevel, validate_whqllevel), 
+
 };
 
-// D3DCAPS8 field descriptors
 static const FieldDescriptor d3dcaps8_fields[] = {
     FIELD_DESC(D3DCAPS8, DeviceType, validate_device_type_caps),
     FIELD_DESC(D3DCAPS8, AdapterOrdinal, validate_adapter_ordinal_caps),
@@ -1238,10 +1291,8 @@ static const FieldDescriptor d3dcaps8_fields[] = {
     FIELD_DESC(D3DCAPS8, PresentationIntervals, validate_presentation_intervals),
     FIELD_DESC(D3DCAPS8, CursorCaps, validate_cursor_caps),
     FIELD_DESC(D3DCAPS8, DevCaps, validate_dev_caps),
-    // Primitive caps would need custom validators
     FIELD_DESC(D3DCAPS8, PrimitiveMiscCaps, validate_primitive_misc_caps),
     FIELD_DESC(D3DCAPS8, RasterCaps, validate_raster_caps),
-    // Memory and texture caps
     FIELD_DESC(D3DCAPS8, MaxTextureWidth, validate_max_texture_dimension),
     FIELD_DESC(D3DCAPS8, MaxTextureHeight, validate_max_texture_dimension),
     FIELD_DESC(D3DCAPS8, MaxVolumeExtent, validate_max_texture_dimension),
@@ -1288,6 +1339,8 @@ static const FieldDescriptor d3dviewport8_fields[] = {
     FIELD_DESC(D3DVIEWPORT8, MinZ, validate_z_depth),
     FIELD_DESC(D3DVIEWPORT8, MaxZ, validate_z_depth)
 };
+
+
 
 
 static const StructDescriptor known_structures[] = {
@@ -1764,5 +1817,6 @@ void ScanMemoryForStructures(const void* start_addr, size_t scan_size, const cha
 }
 
 void Validate() {
-    ScanMemoryForStructures((void*)0x14ce860, sizeof(D3DADAPTER_IDENTIFIER8), "Check Mem Bad Location");
+    ScanMemoryForStructures((void*)0x014ce740, sizeof(D3DCAPS8), "CheckMemory");
+    // ValidateStructure((void*)0x14ce740, known_structures[5], "VALIDATE_D3D8CAPS")
 }
