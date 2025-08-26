@@ -1097,6 +1097,81 @@ ValidationResult validate_shader_version(const void* field_ptr, size_t field_siz
     return result;
 }
 
+ValidationResult validate_texture_caps(const void* field_ptr, size_t field_size, const char* field_name) {
+    ValidationResult result = {false, "Invalid texture caps", 0};
+    
+    if (field_size != sizeof(DWORD)) {
+        result.reason = "Invalid field size for texture caps";
+        return result;
+    }
+    
+    DWORD caps = *(const DWORD*)field_ptr;
+
+    const DWORD ALL_VALID_CAPS = D3DPTEXTURECAPS_PERSPECTIVE |
+                                 D3DPTEXTURECAPS_POW2 |
+                                 D3DPTEXTURECAPS_ALPHA |
+                                 D3DPTEXTURECAPS_SQUAREONLY |
+                                 D3DPTEXTURECAPS_TEXREPEATNOTSCALEDBYSIZE |
+                                 D3DPTEXTURECAPS_ALPHAPALETTE |
+                                 D3DPTEXTURECAPS_NONPOW2CONDITIONAL |
+                                 D3DPTEXTURECAPS_PROJECTED |
+                                 D3DPTEXTURECAPS_CUBEMAP |
+                                 D3DPTEXTURECAPS_VOLUMEMAP |
+                                 D3DPTEXTURECAPS_MIPMAP |
+                                 D3DPTEXTURECAPS_MIPVOLUMEMAP |
+                                 D3DPTEXTURECAPS_MIPCUBEMAP |
+                                 D3DPTEXTURECAPS_CUBEMAP_POW2 |
+                                 D3DPTEXTURECAPS_VOLUMEMAP_POW2; 
+ 
+    if (caps == 0) {
+        result.is_valid = true;
+        result.reason = "No texture capabilities";
+        result.confidence = 60;
+    } else if ((caps & ~ALL_VALID_CAPS) == 0) {
+        // All bits are valid D3D8 texture caps
+        result.is_valid = true;
+        result.reason = "Valid D3D8 texture caps";
+        result.confidence = 95;
+        
+        // Check for logical inconsistencies
+        if ((caps & D3DPTEXTURECAPS_MIPCUBEMAP) && !(caps & D3DPTEXTURECAPS_CUBEMAP)) {
+            result.confidence = 80;
+            result.reason = "Valid caps but MIPCUBEMAP without CUBEMAP";
+        } else if ((caps & D3DPTEXTURECAPS_MIPVOLUMEMAP) && !(caps & D3DPTEXTURECAPS_VOLUMEMAP)) {
+            result.confidence = 80;
+            result.reason = "Valid caps but MIPVOLUMEMAP without VOLUMEMAP";
+        } else if ((caps & D3DPTEXTURECAPS_CUBEMAP_POW2) && !(caps & D3DPTEXTURECAPS_CUBEMAP)) {
+            result.confidence = 80;
+            result.reason = "Valid caps but CUBEMAP_POW2 without CUBEMAP";
+        } else if ((caps & D3DPTEXTURECAPS_VOLUMEMAP_POW2) && !(caps & D3DPTEXTURECAPS_VOLUMEMAP)) {
+            result.confidence = 80;
+            result.reason = "Valid caps but VOLUMEMAP_POW2 without VOLUMEMAP";
+        }
+    } else {
+        // Some invalid bits are set
+        DWORD invalid_bits = caps & ~ALL_VALID_CAPS;
+        
+        if ((invalid_bits & 0xFFFF0000) == 0) {
+            // Only lower 16 bits have invalid flags - might be newer D3D version
+            result.is_valid = true;
+            result.reason = "Seems to contains unknown D3D texture caps";
+            result.confidence = 70;
+        } else if ((caps & ALL_VALID_CAPS) != 0) {
+            // Has some valid caps mixed with invalid ones
+            result.is_valid = true;
+            result.reason = "Mixed valid/invalid texture caps";
+            result.confidence = 50;
+        } else {
+            // Mostly invalid
+            result.reason = "Invalid texture caps flags";
+            result.confidence = -50;
+        }
+    }
+    
+    return result;
+}
+
+
 ValidationResult validate_driver_string(const void* field_ptr, size_t field_size, const char* field_name) {
     ValidationResult result = {false, "Invalid driver string", 0};
     
@@ -1293,6 +1368,7 @@ static const FieldDescriptor d3dcaps8_fields[] = {
     FIELD_DESC(D3DCAPS8, DevCaps, validate_dev_caps),
     FIELD_DESC(D3DCAPS8, PrimitiveMiscCaps, validate_primitive_misc_caps),
     FIELD_DESC(D3DCAPS8, RasterCaps, validate_raster_caps),
+    FIELD_DESC(D3DCAPS8, TextureCaps, validate_texture_caps),
     FIELD_DESC(D3DCAPS8, MaxTextureWidth, validate_max_texture_dimension),
     FIELD_DESC(D3DCAPS8, MaxTextureHeight, validate_max_texture_dimension),
     FIELD_DESC(D3DCAPS8, MaxVolumeExtent, validate_max_texture_dimension),
@@ -1817,6 +1893,5 @@ void ScanMemoryForStructures(const void* start_addr, size_t scan_size, const cha
 }
 
 void Validate() {
-    ScanMemoryForStructures((void*)0x014ce740, sizeof(D3DCAPS8), "CheckMemory");
-    // ValidateStructure((void*)0x14ce740, known_structures[5], "VALIDATE_D3D8CAPS")
+    ScanMemoryForStructures((void*)0x014ce740, 4096, "CheckMemory");
 }

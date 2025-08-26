@@ -1,3 +1,47 @@
+
+windows xp memory scan at 0x014ce740
+
+┌─ D3DCAPS8 at 0x014ce740 (Confidence: 85%)
+│  ├─ DeviceType: 0x00000001 (1) [0x014ce740] (Valid D3DDEVTYPE - 95%)
+│  ├─ AdapterOrdinal: 0x00000000 (0) [0x014ce744] (Value in expected range - 90%)
+│  ├─ Caps: 0x00000000 (0) [0x014ce748] (No caps flags (common) - 85%)
+│  ├─ Caps2: 0x20080000 (537395200) [0x014ce74c] (Valid caps2 combination - 90%)
+│  ├─ Caps3: 0x00000120 (288) [0x014ce750] (Suspicious caps3 value - 25%)
+│  ├─ PresentationIntervals: 0x80000001 (-2147483647) [0x014ce754] (Valid presentation intervals - 95%)
+│  ├─ CursorCaps: 0x00000001 (1) [0x014ce758] (Valid cursor capabilities - 90%)
+│  ├─ DevCaps: 0x0819AEF0 (135900912) [0x014ce75c] (Valid device capabilities - 90%)
+│  ├─ PrimitiveMiscCaps: 0x001208F2 (1181938) [0x014ce760] (Contains unknown PrimitiveMiscCaps flags - 40%)
+│  ├─ RasterCaps: 0x00726191 (7496081) [0x014ce764] (All RasterCaps flags are valid - 90%)
+│  ├─ MaxTextureWidth: 0x00001000 (4096) [0x014ce798] (Valid power-of-2 texture dimension - 95%)
+│  ├─ MaxTextureHeight: 0x00001000 (4096) [0x014ce79c] (Valid power-of-2 texture dimension - 95%)
+│  ├─ MaxVolumeExtent: 0x00000800 (2048) [0x014ce7a0] (Valid power-of-2 texture dimension - 95%)
+│  ├─ MaxTextureRepeat: 0x00002000 (8192) [0x014ce7a4] (Valid power-of-2 texture dimension - 95%)
+│  ├─ MaxVertexIndex: 0x000FFFFF (1048575) [0x014ce7f8] (Reasonable max vertex index - 90%)
+│  ├─ MaxStreams: 0x00000010 (16) [0x014ce7fc] (Valid max vertex streams - 95%)
+│  ├─ VertexShaderVersion: 0xFFFE0101 (-130815) [0x014ce804] (Valid D3D8 shader version - 95%)
+│  └─ PixelShaderVersion: 0xFFFF0104 (-65276) [0x014ce80c] (Valid D3D8 shader version - 95%)
+
+windows 10 memory scan at 0x014ce740
+┌─ D3DCAPS8 at 0x014ce740 (Confidence: 90%)
+│  ├─ DeviceType: 0x00000001 (1) [0x014ce740] (Valid D3DDEVTYPE - 95%)
+│  ├─ AdapterOrdinal: 0x00000000 (0) [0x014ce744] (Value in expected range - 90%)
+│  ├─ Caps: 0x00020000 (131072) [0x014ce748] (READ_SCANLINE cap - 90%)
+│  ├─ Caps2: 0x20080000 (537395200) [0x014ce74c] (Valid caps2 combination - 90%)
+│  ├─ Caps3: 0x000000A0 (160) [0x014ce750] (Plausible caps3 value - 50%)
+│  ├─ PresentationIntervals: 0x8000000F (-2147483633) [0x014ce754] (Valid presentation intervals - 95%)
+│  ├─ CursorCaps: 0x00000000 (0) [0x014ce758] (No cursor capabilities - 85%)
+│  ├─ DevCaps: 0x001BBFF0 (1818608) [0x014ce75c] (Valid device capabilities - 90%)
+│  ├─ PrimitiveMiscCaps: 0x00000FF2 (4082) [0x014ce760] (All PrimitiveMiscCaps flags are valid - 90%)
+│  ├─ RasterCaps: 0x00732190 (7545232) [0x014ce764] (All RasterCaps flags are valid - 90%)
+│  ├─ MaxTextureWidth: 0x00004000 (16384) [0x014ce798] (Valid power-of-2 texture dimension - 95%)
+│  ├─ MaxTextureHeight: 0x00004000 (16384) [0x014ce79c] (Valid power-of-2 texture dimension - 95%)
+│  ├─ MaxVolumeExtent: 0x00004000 (16384) [0x014ce7a0] (Valid power-of-2 texture dimension - 95%)
+│  ├─ MaxTextureRepeat: 0x00002000 (8192) [0x014ce7a4] (Valid power-of-2 texture dimension - 95%)
+│  ├─ MaxVertexIndex: 0x00FFFFFF (16777215) [0x014ce7f8] (Reasonable max vertex index - 90%)
+│  ├─ MaxStreams: 0x00000010 (16) [0x014ce7fc] (Valid max vertex streams - 95%)
+│  ├─ VertexShaderVersion: 0xFFFE0101 (-130815) [0x014ce804] (Valid D3D8 shader version - 95%)
+│  └─ PixelShaderVersion: 0xFFFF0104 (-65276) [0x014ce80c] (Valid D3D8 shader version - 95%)
+
 Device Caps in XP:
 Debug string: [UNKNOWN_MEMORY_TARGET] Memory dump at 0x014ce740 (213 bytes):
 0000: 01 00 00 00 00 00 00 00 00 00 00 00 00 00 08 20  ............... 
