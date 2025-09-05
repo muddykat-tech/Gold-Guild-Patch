@@ -12,6 +12,11 @@
 
 *Europa 1400: Gold* experiences UI rendering problems on modern Windows systems due to a surface padding compatibility issue in the DirectX 8 rendering pipeline.
 
+## This patch can be substituted with the latest version of **DxWrapper** (v1.4.7900.25).
+> A preconfigured `.ini` file is included in the root of this repository, which uses the newly added `SetPOW2Caps` option to fix the issue.
+>
+> Details on the patch functions below may be of use to other programmers or mod developers.
+
 ---
 
 ## Rendering Bug in GOG Version on Modern Windows
@@ -126,6 +131,6 @@ The rendering issue is caused by the game's hardcoded reliance on legacy `D3DCAP
 | `0x004770A0` | Allocates new image surface |
 | `0x00477152` | Conditional checks for image surface padding calculation|
 | `0x0067D91D` | Byte controlling padding behavior (set to `0x00` on modern Windows; `0x01` on XP) |
-| `0x0041ad08` | Appears to copy `D3DPRESENT_PARAMETERS` from `PTR_AdapterData` into `PTR_014ce740` using `memcpy` (0x34 bytes); also sets `014ce77c` |
-| `0x014ce77c` | Assumed to be `TextureCaps` in the `PTR_014ce740` structure | 
+| `0x0041ad08` | Appears to copy `D3DPRESENT_PARAMETERS` from `PTR_AdapterData` into `D3DCAPS8 (0x014ce740)` using `memcpy` (0x34 bytes); also sets `014ce77c` |
+| `0x014ce77c` | `TextureCaps` in the `D3DCAPS8` structure | 
 
