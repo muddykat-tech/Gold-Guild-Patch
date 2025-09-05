@@ -12,7 +12,7 @@
 
 *Europa 1400: Gold* experiences UI rendering problems on modern Windows systems due to a surface padding compatibility issue in the DirectX 8 rendering pipeline.
 
-## This patch can be substituted with the latest version of **DxWrapper** (v1.4.7900.25).
+## This patch can be substituted with the latest version of **DxWrapper** (v1.4.7900.25)
 > A preconfigured `.ini` file is included in the root of this repository, which uses the newly added `SetPOW2Caps` option to fix the issue.
 >
 > Details on the patch functions below may be of use to other programmers or mod developers.
