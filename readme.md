@@ -54,29 +54,31 @@ There are **three practical methods** to correct this behavior:
 #### 1. **Patch the Surface Allocation Check (v1.1 approach)**  
 Remove the conditional check against `TextureCaps` during surface allocation, forcing the game to always apply power-of-two padding when appropriate.  
 
-- Small binary patch with minimal footprint  
-- Works regardless of the actual `D3DCAPS8` values returned  
-- Minimal impact on unrelated systems or rendering paths  
+- Really small patch  
+- Minimal impact on unrelated systems or rendering paths
 - **Highly version-specific**: This method depends on the decompiled layout of the GOG release; other builds (e.g., retail CD or Steam) would require separate patches due to differences in compilation and layout
 
 #### 2. **Hook and Correct at Runtime (v1.0 approach)**  
 Inject a trampoline into the surface allocation function to dynamically recalculate and enforce power-of-two surface dimensions at runtime.
 
-- Enables dynamic logic correction without modifying existing control flow  
-- Slightly more invasive than method 1, but robust and accurate  
-- Requires access to the D3D8 device pointer and in-depth knowledge of the function's calling conventions  
-- **Also version-specific**, due to address and layout differences between builds
+- More invasive than method.
+- Fixes *all* possible calls to the surface allocation function, not just the calls identified in memory at `0x004770A0` 
+- Requires access to the D3D8 device pointer and in-depth knowledge of the function's calling conventions.
+- **Also version-specific**, due to address and layout differences between builds this time due to the D3D8 device pointer requirement.
 
 #### 3. **Intercept Direct3D8 via Wrapper (`d3d8.dll` Proxy)**  
 Create or modify a `d3d8.dll` proxy to intercept `GetDeviceCaps`, injecting the missing texture capability flags (e.g., `D3DPTEXTURECAPS_POW2`) before the data reaches the game.
 
 - Preserves original game logic and compatibility paths  
-- Can be layered into existing Direct3D8-to-9 wrappers like dgVoodoo or DXWrapper  
 - **Game-version independent**: Does not rely on binary layout, making it the most portable of the three solutions
   
 ### Summary
 
-The rendering issue is caused by the game's hardcoded reliance on legacy `D3DCAPS8` flags that are no longer reported on modern systems. The global struct at `0x014ce740` reflects the result of `GetDeviceCaps`, and the absence of `D3DPTEXTURECAPS_POW2` causes improper surface sizing.
+The rendering issue stems from the game's hardcoded reliance on legacy `D3DCAPS8` flags that are no longer reported by modern DirectX drivers. Specifically, the global structure at `0x014CE740` stores the result of `GetDeviceCaps`, and the absence of the `D3DPTEXTURECAPS_POW2` flag leads to incorrect surface sizing.
+
+Originally, **DxWrapper** did not support overriding texture capability flags, but recent versions have introduced support for this via the `SetPOW2Caps` option. As a result, **DxWrapper** is now the recommended solution, as it works across all versions of the game.
+
+In contrast, this patch is limited to the **GOG version** of *Europa 1400: Gold*. Its main advantage is that it's a lightweight, targeted fix without the overhead of a full wrapper.
 
 ### Execution Flow Diagram
 
