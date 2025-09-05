@@ -14,18 +14,64 @@
 
 ---
 
-## The Problem
-
+## Rendering Bug in GOG Version on Modern Windows
 > **Note**: All addresses and offsets referenced apply specifically to the **GOG** version of the game.
 
-A simplified overview of the game's rendering system follows this process:
+### Overview
+The game uses Direct3D 8 for rendering. During initialization:
 
-1. **IDirectD3D8 Creation**: `FN_InitializeD3D8` is called to set up DirectX rendering
-2. **Display Information Detection**: The system attempts to detect data about the display
-3. **Suspected Initial Failure Point**: On Windows Vista and newer, `IDirect3D8::EnumAdapterModes: called at 0x041a4ca` this seems to be interrupted by `d3d10warp.dll` loading, causing the method to encounter an error and zero out the structure it was filling. (this data is stored in a global ptr (`PTR_AdapterData`) which seems to be a custom structure)
-4. **D3D8 Device Creation**: After creating the IDirectD3D8 Struct, the game then creates the Device and uses the information in PTR_AdapterData to set `TextureCaps: see addr 0x014ce77c`
-5. **Surface Allocation**: When `FN_allocate_image_surface: see addr 0x04770a0` is later called, the surface padding calculation condition is based on the data from `TextureCaps` which is erroneous in windows 10.
-6. **Result**: UI textures appear truncated because surface dimensions aren't properly padded to the next power of two and seem to be floored or rounded to a power of two.
+- It creates an `IDirect3D8` interface via `Direct3DCreate8`
+- Retrieves hardware capabilities using `IDirect3D8::GetDeviceCaps`
+- Copies the resulting `D3DCAPS8` structure into a global memory region at address `0x014ce740`
+
+This global struct (mistakenly assumed to come from `EnumAdapterModes` in earlier analysis) contains the `TextureCaps` field, which informs surface allocation logic later in the pipeline.
+
+### The Bug
+
+On Windows versions past XP, `GetDeviceCaps` does **not** return the legacy `D3DPTEXTURECAPS_POW2` and related flags. The game relies on these flags to determine if textures should be padded to the nearest power of two.
+
+Without them, surfaces are incorrectly sized which causes **truncated or misaligned UI textures**.
+
+### Missing Flags
+
+The following `D3DCAPS8.TextureCaps` flags are present on Windows XP but absent on later windows versions:
+
+- `D3DPTEXTURECAPS_POW2`
+- `D3DPTEXTURECAPS_NONPOW2CONDITIONAL`
+- `D3DPTEXTURECAPS_CUBEMAP_POW2`
+- `D3DPTEXTURECAPS_VOLUMEMAP_POW2`
+
+These are required by the game's logic to apply correct surface padding during texture allocation (`FN_allocate_image_surface` at `0x04770a0`).
+
+### Patch Methods
+There are **three practical methods** to correct this behavior:
+
+#### 1. **Patch the Surface Allocation Check (v1.1 approach)**  
+Remove the conditional check against `TextureCaps` during surface allocation, forcing the game to always apply power-of-two padding when appropriate.  
+
+- Small binary patch with minimal footprint  
+- Works regardless of the actual `D3DCAPS8` values returned  
+- Minimal impact on unrelated systems or rendering paths  
+- **Highly version-specific**: This method depends on the decompiled layout of the GOG release; other builds (e.g., retail CD or Steam) would require separate patches due to differences in compilation and layout
+
+#### 2. **Hook and Correct at Runtime (v1.0 approach)**  
+Inject a trampoline into the surface allocation function to dynamically recalculate and enforce power-of-two surface dimensions at runtime.
+
+- Enables dynamic logic correction without modifying existing control flow  
+- Slightly more invasive than method 1, but robust and accurate  
+- Requires access to the D3D8 device pointer and in-depth knowledge of the function's calling conventions  
+- **Also version-specific**, due to address and layout differences between builds
+
+#### 3. **Intercept Direct3D8 via Wrapper (`d3d8.dll` Proxy)**  
+Create or modify a `d3d8.dll` proxy to intercept `GetDeviceCaps`, injecting the missing texture capability flags (e.g., `D3DPTEXTURECAPS_POW2`) before the data reaches the game.
+
+- Preserves original game logic and compatibility paths  
+- Can be layered into existing Direct3D8-to-9 wrappers like dgVoodoo or DXWrapper  
+- **Game-version independent**: Does not rely on binary layout, making it the most portable of the three solutions
+  
+### Summary
+
+The rendering issue is caused by the game's hardcoded reliance on legacy `D3DCAPS8` flags that are no longer reported on modern systems. The global struct at `0x014ce740` reflects the result of `GetDeviceCaps`, and the absence of `D3DPTEXTURECAPS_POW2` causes improper surface sizing.
 
 ### Execution Flow Diagram
 
